@@ -1,27 +1,29 @@
 //
-//  ViewController.swift
+//  LoginVC.swift
 //  Vesta
 //
-//  Created by MAD2 on 13/1/22.
+//  Created by herm on 17/1/22.
 //
+
+import Foundation
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginVC: UIViewController {
 
-    @IBOutlet weak var phoneNo: UITextField!
     
     @IBOutlet weak var enterOTP: UITextField!
     
-    @IBAction func getOtp(_ sender: Any) {
-        
+    
+    @IBAction func logIn(_ sender: Any) {
         
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //Hi
-        //hello
+    
     }
 
 

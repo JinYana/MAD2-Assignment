@@ -19,6 +19,7 @@
 		0E686883279566B1007F092A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686882279566B1007F092A /* FirebaseAuth */; };
 		0E686885279566B1007F092A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686884279566B1007F092A /* FirebaseDatabase */; };
 		0E686887279566B1007F092A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686886279566B1007F092A /* FirebaseStorage */; };
+		C5758CE527959DD3003130F3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5758CE427959DD3003130F3 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0E52ACEA278FC76F001F6D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E52ACEC278FC76F001F6D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E68687D2795658D007F092A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C5758CE427959DD3003130F3 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				0E52ACEC278FC76F001F6D8F /* Info.plist */,
 				0E52ACE4278FC76D001F6D8F /* Vesta.xcdatamodeld */,
 				0E68687D2795658D007F092A /* GoogleService-Info.plist */,
+				C5758CE427959DD3003130F3 /* LoginVC.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				0E52ACE6278FC76D001F6D8F /* Vesta.xcdatamodeld in Sources */,
 				0E52ACDC278FC76D001F6D8F /* AppDelegate.swift in Sources */,
 				0E52ACDE278FC76D001F6D8F /* SceneDelegate.swift in Sources */,
+				C5758CE527959DD3003130F3 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

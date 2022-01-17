@@ -19,6 +19,9 @@
 		0E686883279566B1007F092A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686882279566B1007F092A /* FirebaseAuth */; };
 		0E686885279566B1007F092A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686884279566B1007F092A /* FirebaseDatabase */; };
 		0E686887279566B1007F092A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686886279566B1007F092A /* FirebaseStorage */; };
+		0E68688B27959EA1007F092A /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68688A27959EA1007F092A /* House.swift */; };
+		0E68688D27959F48007F092A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68688C27959F48007F092A /* User.swift */; };
+		0E68688F2795B352007F092A /* Chores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68688E2795B352007F092A /* Chores.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		0E52ACEA278FC76F001F6D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E52ACEC278FC76F001F6D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E68687D2795658D007F092A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0E68688A27959EA1007F092A /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		0E68688C27959F48007F092A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0E68688E2795B352007F092A /* Chores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chores.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,9 @@
 				0E52ACEC278FC76F001F6D8F /* Info.plist */,
 				0E52ACE4278FC76D001F6D8F /* Vesta.xcdatamodeld */,
 				0E68687D2795658D007F092A /* GoogleService-Info.plist */,
+				0E68688A27959EA1007F092A /* House.swift */,
+				0E68688C27959F48007F092A /* User.swift */,
+				0E68688E2795B352007F092A /* Chores.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -164,8 +173,11 @@
 			files = (
 				0E52ACE0278FC76D001F6D8F /* ViewController.swift in Sources */,
 				0E52ACE6278FC76D001F6D8F /* Vesta.xcdatamodeld in Sources */,
+				0E68688D27959F48007F092A /* User.swift in Sources */,
 				0E52ACDC278FC76D001F6D8F /* AppDelegate.swift in Sources */,
+				0E68688B27959EA1007F092A /* House.swift in Sources */,
 				0E52ACDE278FC76D001F6D8F /* SceneDelegate.swift in Sources */,
+				0E68688F2795B352007F092A /* Chores.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,8 +324,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PRRBNJ47ZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Vesta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -328,6 +342,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jin.yang.ng.Vesta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -341,6 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PRRBNJ47ZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Vesta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

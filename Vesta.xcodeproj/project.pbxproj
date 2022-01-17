@@ -14,6 +14,11 @@
 		0E52ACE6278FC76D001F6D8F /* Vesta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E52ACE4278FC76D001F6D8F /* Vesta.xcdatamodeld */; };
 		0E52ACE8278FC76F001F6D8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E52ACE7278FC76F001F6D8F /* Assets.xcassets */; };
 		0E52ACEB278FC76F001F6D8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E52ACE9278FC76F001F6D8F /* LaunchScreen.storyboard */; };
+		0E68687E2795658D007F092A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E68687D2795658D007F092A /* GoogleService-Info.plist */; };
+		0E686881279566B1007F092A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686880279566B1007F092A /* FirebaseAnalytics */; };
+		0E686883279566B1007F092A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686882279566B1007F092A /* FirebaseAuth */; };
+		0E686885279566B1007F092A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686884279566B1007F092A /* FirebaseDatabase */; };
+		0E686887279566B1007F092A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686886279566B1007F092A /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,7 @@
 		0E52ACE7278FC76F001F6D8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E52ACEA278FC76F001F6D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E52ACEC278FC76F001F6D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E68687D2795658D007F092A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E686885279566B1007F092A /* FirebaseDatabase in Frameworks */,
+				0E686887279566B1007F092A /* FirebaseStorage in Frameworks */,
+				0E686881279566B1007F092A /* FirebaseAnalytics in Frameworks */,
+				0E686883279566B1007F092A /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +76,7 @@
 				0E52ACE9278FC76F001F6D8F /* LaunchScreen.storyboard */,
 				0E52ACEC278FC76F001F6D8F /* Info.plist */,
 				0E52ACE4278FC76D001F6D8F /* Vesta.xcdatamodeld */,
+				0E68687D2795658D007F092A /* GoogleService-Info.plist */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -86,6 +97,12 @@
 			dependencies = (
 			);
 			name = Vesta;
+			packageProductDependencies = (
+				0E686880279566B1007F092A /* FirebaseAnalytics */,
+				0E686882279566B1007F092A /* FirebaseAuth */,
+				0E686884279566B1007F092A /* FirebaseDatabase */,
+				0E686886279566B1007F092A /* FirebaseStorage */,
+			);
 			productName = Vesta;
 			productReference = 0E52ACD8278FC76D001F6D8F /* Vesta.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 0E52ACCF278FC76D001F6D8F;
+			packageReferences = (
+				0E68687F279566B1007F092A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 0E52ACD9278FC76D001F6D8F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E52ACEB278FC76F001F6D8F /* LaunchScreen.storyboard in Resources */,
+				0E68687E2795658D007F092A /* GoogleService-Info.plist in Resources */,
 				0E52ACE8278FC76F001F6D8F /* Assets.xcassets in Resources */,
 				0E52ACE3278FC76D001F6D8F /* Main.storyboard in Resources */,
 			);
@@ -362,6 +383,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0E68687F279566B1007F092A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E686880279566B1007F092A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E68687F279566B1007F092A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0E686882279566B1007F092A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E68687F279566B1007F092A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		0E686884279566B1007F092A /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E68687F279566B1007F092A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		0E686886279566B1007F092A /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E68687F279566B1007F092A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0E52ACE4278FC76D001F6D8F /* Vesta.xcdatamodeld */ = {

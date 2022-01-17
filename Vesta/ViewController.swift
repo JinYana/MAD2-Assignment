@@ -9,6 +9,14 @@ import UIKit
 import Firebase
 class ViewController: UIViewController {
 
+    @IBOutlet weak var phoneNo: UITextField!
+    
+    @IBOutlet weak var enterOTP: UITextField!
+    
+    @IBAction func getOtp(_ sender: Any) {
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

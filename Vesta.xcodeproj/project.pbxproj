@@ -38,6 +38,7 @@
 		0E68688A27959EA1007F092A /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		0E68688C27959F48007F092A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E68688E2795B352007F092A /* Chores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chores.swift; sourceTree = "<group>"; };
+		C5758CE427959DD3003130F3 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 				0E68688A27959EA1007F092A /* House.swift */,
 				0E68688C27959F48007F092A /* User.swift */,
 				0E68688E2795B352007F092A /* Chores.swift */,
+				C5758CE427959DD3003130F3 /* LoginVC.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -178,6 +180,7 @@
 				0E68688B27959EA1007F092A /* House.swift in Sources */,
 				0E52ACDE278FC76D001F6D8F /* SceneDelegate.swift in Sources */,
 				0E68688F2795B352007F092A /* Chores.swift in Sources */,
+				C5758CE527959DD3003130F3 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

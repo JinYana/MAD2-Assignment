@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Firebase
 class ViewController: UIViewController {
 
     @IBOutlet weak var phoneNo: UITextField!
@@ -21,6 +21,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //Hi
+        var ref:DatabaseReference!
+        
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        var refHandle:DataSnapshot
+        
+        let data: Data // received from a network request, for example
+        
+        ref.child("Houses").observe(DataEventType.value, with:{ snapshot in
+            
+            let json = try? JSONSerialization.data(withJSONObject: snapshot.value)
+            
+            
+            
+        })
     }
 
 

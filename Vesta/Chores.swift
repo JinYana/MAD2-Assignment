@@ -11,12 +11,13 @@ class Chores {
     let name:String
     let user:String
     let date:Date
-    let id
+    let id: String
     
     
-    init(name:String, id:String, mobilenumber:String){
+    init(name:String, id:String, date:Date, user:String){
         self.name = name
         self.id = id
-        self.mobilenumber = mobilenumber
+        self.date = date
+        self.user = user
     }
 }

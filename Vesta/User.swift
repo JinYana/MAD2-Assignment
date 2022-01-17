@@ -9,13 +9,11 @@ import Foundation
 
 class User {
     let name:String
-    let id: String
     let mobilenumber: String
     
     
-    init(name:String, id:String, mobilenumber:String){
+    init(name:String, mobilenumber:String){
         self.name = name
-        self.id = id
         self.mobilenumber = mobilenumber
         
     }

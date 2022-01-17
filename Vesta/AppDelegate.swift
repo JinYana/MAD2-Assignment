@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    var selectedHouse:House?
+    var selectedUser:User?
+    
 
 
 

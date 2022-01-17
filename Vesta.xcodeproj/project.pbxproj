@@ -22,6 +22,8 @@
 		0E68688B27959EA1007F092A /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68688A27959EA1007F092A /* House.swift */; };
 		0E68688F2795B352007F092A /* Chores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68688E2795B352007F092A /* Chores.swift */; };
 		0E6868912795BA5B007F092A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868902795BA5B007F092A /* User.swift */; };
+		0E6868932795E29A007F092A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6868922795E29A007F092A /* Home.storyboard */; };
+		0E6868952795E2D6007F092A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868942795E2D6007F092A /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		0E68688A27959EA1007F092A /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		0E68688E2795B352007F092A /* Chores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chores.swift; sourceTree = "<group>"; };
 		0E6868902795BA5B007F092A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0E6868922795E29A007F092A /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		0E6868942795E2D6007F092A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		C5758CE427959DD3003130F3 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,7 @@
 				0E52ACDD278FC76D001F6D8F /* SceneDelegate.swift */,
 				0E52ACDF278FC76D001F6D8F /* ViewController.swift */,
 				0E52ACE1278FC76D001F6D8F /* Main.storyboard */,
+				0E6868922795E29A007F092A /* Home.storyboard */,
 				0E52ACE7278FC76F001F6D8F /* Assets.xcassets */,
 				0E52ACE9278FC76F001F6D8F /* LaunchScreen.storyboard */,
 				0E52ACEC278FC76F001F6D8F /* Info.plist */,
@@ -86,8 +91,9 @@
 				0E68687D2795658D007F092A /* GoogleService-Info.plist */,
 				0E68688A27959EA1007F092A /* House.swift */,
 				0E68688E2795B352007F092A /* Chores.swift */,
-				C5758CE427959DD3003130F3 /* LoginVC.swift */,
 				0E6868902795BA5B007F092A /* User.swift */,
+				C5758CE427959DD3003130F3 /* LoginVC.swift */,
+				0E6868942795E2D6007F092A /* HomeController.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -160,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E52ACEB278FC76F001F6D8F /* LaunchScreen.storyboard in Resources */,
+				0E6868932795E29A007F092A /* Home.storyboard in Resources */,
 				0E68687E2795658D007F092A /* GoogleService-Info.plist in Resources */,
 				0E52ACE8278FC76F001F6D8F /* Assets.xcassets in Resources */,
 				0E52ACE3278FC76D001F6D8F /* Main.storyboard in Resources */,
@@ -177,6 +184,7 @@
 				0E52ACE6278FC76D001F6D8F /* Vesta.xcdatamodeld in Sources */,
 				0E52ACDC278FC76D001F6D8F /* AppDelegate.swift in Sources */,
 				0E68688B27959EA1007F092A /* House.swift in Sources */,
+				0E6868952795E2D6007F092A /* HomeController.swift in Sources */,
 				0E52ACDE278FC76D001F6D8F /* SceneDelegate.swift in Sources */,
 				0E68688F2795B352007F092A /* Chores.swift in Sources */,
 				0E6868912795BA5B007F092A /* User.swift in Sources */,

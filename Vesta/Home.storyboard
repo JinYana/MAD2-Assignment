@@ -116,6 +116,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="gLx-qd-pga"/>
+                    <connections>
+                        <outlet property="housename" destination="BXx-mJ-LKl" id="BlH-OZ-Mii"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qs-X8-OMN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

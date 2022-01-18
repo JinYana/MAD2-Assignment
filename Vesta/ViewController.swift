@@ -7,13 +7,37 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseCore
+var appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 class ViewController: UIViewController {
+    var verification_id : String? = nil
 
     @IBOutlet weak var phoneNo: UITextField!
     
     @IBOutlet weak var enterOTP: UITextField!
     
     @IBAction func getOtp(_ sender: Any) {
+        // get verification code from phone no
+        Auth.auth().settings?.isAppVerificationDisabledForTesting = false
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo.text!, uiDelegate: nil, completion: {verificationId,error in
+            
+            if(error != nil){
+                
+                print("Error in getting Verification ID")
+            }else {
+                self.verification_id = verificationId
+                appDelegate.verId = verificationId
+                print("Success in getting Verification ID")
+                
+                
+            }
+            
+            
+            
+        })
+        performSegue(withIdentifier: "getOTP", sender: self)
         
         
     }

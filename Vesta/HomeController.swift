@@ -11,11 +11,15 @@ import Firebase
 
 class HomeController: UIViewController {
 
+    var ref :DatabaseReference!
     
+    
+     
     @IBOutlet weak var housename: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         
@@ -25,9 +29,8 @@ class HomeController: UIViewController {
     
     
     @IBAction func makehouse(_ sender: Any) {
-        if housename.text != ""{
-            
-        }
+        ref = Database.database().reference()
+        self.ref.child("users/\(user.uid)/username").setValue(username)
     }
 }
 

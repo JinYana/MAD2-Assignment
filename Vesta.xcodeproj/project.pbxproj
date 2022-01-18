@@ -24,6 +24,7 @@
 		0E6868912795BA5B007F092A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868902795BA5B007F092A /* User.swift */; };
 		0E6868932795E29A007F092A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6868922795E29A007F092A /* Home.storyboard */; };
 		0E6868952795E2D6007F092A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868942795E2D6007F092A /* HomeController.swift */; };
+		C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5CFA2796AEAE000502DE /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +43,7 @@
 		0E6868902795BA5B007F092A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E6868922795E29A007F092A /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0E6868942795E2D6007F092A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		C5758CE427959DD3003130F3 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		C5AC5CFA2796AEAE000502DE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +93,8 @@
 				0E68688A27959EA1007F092A /* House.swift */,
 				0E68688E2795B352007F092A /* Chores.swift */,
 				0E6868902795BA5B007F092A /* User.swift */,
-				C5758CE427959DD3003130F3 /* LoginVC.swift */,
 				0E6868942795E2D6007F092A /* HomeController.swift */,
+				C5AC5CFA2796AEAE000502DE /* LoginVC.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -185,6 +186,7 @@
 				0E52ACDC278FC76D001F6D8F /* AppDelegate.swift in Sources */,
 				0E68688B27959EA1007F092A /* House.swift in Sources */,
 				0E6868952795E2D6007F092A /* HomeController.swift in Sources */,
+				C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */,
 				0E52ACDE278FC76D001F6D8F /* SceneDelegate.swift in Sources */,
 				0E68688F2795B352007F092A /* Chores.swift in Sources */,
 				0E6868912795BA5B007F092A /* User.swift in Sources */,

@@ -29,8 +29,11 @@ class HomeController: UIViewController {
     
     
     @IBAction func makehouse(_ sender: Any) {
-        ref = Database.database().reference()
-        self.ref.child("users/\(user.uid)/username").setValue(username)
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        guard let key = ref.child("Houses").childByAutoId().key else { return }
+        let post = ["name": housename.text]
+        let childUpdates = ["/Houses/\(key)": post]
+        ref.updateChildValues(childUpdates)
     }
 }
 

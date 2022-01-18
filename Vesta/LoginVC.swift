@@ -24,7 +24,14 @@ class LoginVC: UIViewController {
     @IBOutlet weak var warning: UILabel!
     
        
-            
+    @IBAction func testButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Home") as UIViewController
+            vc.modalPresentationStyle = .fullScreen
+        self.present(vc,animated: true,completion: nil)
+        
+    }
+    
     @IBAction func logIn(_ sender: Any) {
         if appDelegate.verId != nil{
             let credential = PhoneAuthProvider.provider().credential(withVerificationID:appDelegate.verId!, verificationCode: enterOTP.text!)

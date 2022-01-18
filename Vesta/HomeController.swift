@@ -29,11 +29,15 @@ class HomeController: UIViewController {
     
     
     @IBAction func makehouse(_ sender: Any) {
-        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-        guard let key = ref.child("Houses").childByAutoId().key else { return }
-        let post = ["name": housename.text]
-        let childUpdates = ["/Houses/\(key)": post]
-        ref.updateChildValues(childUpdates)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if housename.text != ""{
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            guard let key = ref.child("Houses").childByAutoId().key else { return }
+            let post = ["name": housename.text,
+                        "userList": [appDelegate.selectedUser?.mobilenumber: true]] as [String : Any]
+            let childUpdates = ["/Houses/\(key)": post]
+            ref.updateChildValues(childUpdates)
+        }
     }
 }
 

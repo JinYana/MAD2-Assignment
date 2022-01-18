@@ -7,16 +7,18 @@
 
 import Foundation
 
-class House {
+class House:Codable{
     let name:String
     let id:String
-    let choreList: [String]
-    let userList: [String]
+    let choreList: [String?]
+    let userList: [String?]
     
-    init(name:String, id:String, choreList:[String], userList:[String]){
+    init(name:String, id:String, choreList:[String?], userList:[String?]){
         self.name = name
         self.id = id
         self.choreList = choreList
         self.userList = userList
     }
+    
+    
 }

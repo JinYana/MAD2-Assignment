@@ -32,11 +32,17 @@ class HomeController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if housename.text != ""{
             ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            //Adding the new house to the database
             guard let key = ref.child("Houses").childByAutoId().key else { return }
-            let post = ["name": housename.text,
-                        "userList": [appDelegate.selectedUser?.mobilenumber: true]] as [String : Any]
+            let post = ["name": housename.text!,
+                        "id": key]
             let childUpdates = ["/Houses/\(key)": post]
             ref.updateChildValues(childUpdates)
+            
+            //Adding user to newly created house
+            let post2 = [appDelegate.selectedUser?.mobilenumber: true]
+            let childUpdates2 = ["/Houses/\(key)/userList": post2]
+            ref.updateChildValues(childUpdates2)
         }
     }
 }

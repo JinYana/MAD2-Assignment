@@ -21,7 +21,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var enterOTP: UITextField!
     
         
-      
+    @IBOutlet weak var warning: UILabel!
+    
        
             
     @IBAction func logIn(_ sender: Any) {
@@ -30,11 +31,17 @@ class LoginVC: UIViewController {
             Auth.auth().signIn(with: credential, completion: {authData,error in
                 if (error != nil){
                     print(error.debugDescription)
+                    self.warning.isHidden = false
                     
                     
                 }else{
-                    
+                    self.warning.isHidden = true
                     print("Authentication Succeed")
+                    let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "Home") as UIViewController
+                        vc.modalPresentationStyle = .fullScreen
+                    self.present(vc,animated: true,completion: nil)
+                    
                 }
                 
                 
@@ -51,7 +58,7 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-      
+        warning.isHidden = true
     
     }
 

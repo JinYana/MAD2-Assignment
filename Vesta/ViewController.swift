@@ -25,12 +25,12 @@ class ViewController: UIViewController {
             
             if(error != nil){
                 
-                print("Error in getting Verification ID")
+                print(error.debugDescription)
             }else {
                 self.verification_id = verificationId
                 appDelegate.verId = verificationId
                 print("Success in getting Verification ID")
-                
+                print(verificationId)
                 
             }
             

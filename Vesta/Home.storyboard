@@ -38,6 +38,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Join House"/>
                                 <connections>
+                                    <action selector="joinhouse:" destination="hgr-Z8-LOQ" eventType="touchUpInside" id="Vkl-V6-d5Z"/>
                                     <action selector="makehouse:" destination="6B9-Zn-CAP" eventType="touchUpInside" id="5oK-0W-mcV"/>
                                 </connections>
                             </button>
@@ -46,6 +47,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pqn-2n-LHG"/>
+                    <connections>
+                        <outlet property="houseid" destination="545-uy-Uid" id="9YO-m0-PpL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2v-qW-t54" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

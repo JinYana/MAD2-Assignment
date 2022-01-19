@@ -11,6 +11,7 @@ import Firebase
 class NewUserController: UIViewController{
     
     @IBOutlet weak var setname: UITextField!
+    
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var ref:DatabaseReference!
 

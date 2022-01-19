@@ -24,7 +24,10 @@
 		0E6868932795E29A007F092A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6868922795E29A007F092A /* Home.storyboard */; };
 		0E6868952795E2D6007F092A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868942795E2D6007F092A /* HomeController.swift */; };
 		0E6868972796B494007F092A /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868962796B494007F092A /* HomeTableViewController.swift */; };
+		C55484CD279837AB00FEE6D3 /* GroceriesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */; };
+		C55484CF279837E400FEE6D3 /* AddGroceryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */; };
 		C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5CFA2796AEAE000502DE /* LoginVC.swift */; };
+		C77EFDDFB947773DCA50B25B /* Pods_Vesta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2CA833105384396DCB60639 /* Pods_Vesta.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,11 @@
 		0E6868922795E29A007F092A /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0E6868942795E2D6007F092A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		0E6868962796B494007F092A /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		852B0947D2ABF36CF4D5A459 /* Pods-Vesta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vesta.release.xcconfig"; path = "Target Support Files/Pods-Vesta/Pods-Vesta.release.xcconfig"; sourceTree = "<group>"; };
+		A2CA833105384396DCB60639 /* Pods_Vesta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vesta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3387467CFE54E1264810B6B /* Pods-Vesta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vesta.debug.xcconfig"; path = "Target Support Files/Pods-Vesta/Pods-Vesta.debug.xcconfig"; sourceTree = "<group>"; };
+		C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesTVC.swift; sourceTree = "<group>"; };
+		C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryVC.swift; sourceTree = "<group>"; };
 		C5AC5CFA2796AEAE000502DE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +63,7 @@
 				0E686887279566B1007F092A /* FirebaseStorage in Frameworks */,
 				0E686881279566B1007F092A /* FirebaseAnalytics in Frameworks */,
 				0E686883279566B1007F092A /* FirebaseAuth in Frameworks */,
+				C77EFDDFB947773DCA50B25B /* Pods_Vesta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +75,8 @@
 			children = (
 				0E52ACDA278FC76D001F6D8F /* Vesta */,
 				0E52ACD9278FC76D001F6D8F /* Products */,
+				EA796FB1B0F04D991DFF4A4B /* Pods */,
+				963B2E08DD88CEC6A295B857 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,8 +106,28 @@
 				0E6868942795E2D6007F092A /* HomeController.swift */,
 				C5AC5CFA2796AEAE000502DE /* LoginVC.swift */,
 				0E6868962796B494007F092A /* HomeTableViewController.swift */,
+				C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */,
+				C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */,
 			);
 			path = Vesta;
+			sourceTree = "<group>";
+		};
+		963B2E08DD88CEC6A295B857 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2CA833105384396DCB60639 /* Pods_Vesta.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA796FB1B0F04D991DFF4A4B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3387467CFE54E1264810B6B /* Pods-Vesta.debug.xcconfig */,
+				852B0947D2ABF36CF4D5A459 /* Pods-Vesta.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E52ACEF278FC76F001F6D8F /* Build configuration list for PBXNativeTarget "Vesta" */;
 			buildPhases = (
+				D04717F1F01147E51251FF93 /* [CP] Check Pods Manifest.lock */,
 				0E52ACD4278FC76D001F6D8F /* Sources */,
 				0E52ACD5278FC76D001F6D8F /* Frameworks */,
 				0E52ACD6278FC76D001F6D8F /* Resources */,
+				222AE3814F8C86640DEFF5FF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +209,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		222AE3814F8C86640DEFF5FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vesta/Pods-Vesta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Vesta/Pods-Vesta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Vesta/Pods-Vesta-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D04717F1F01147E51251FF93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Vesta-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0E52ACD4278FC76D001F6D8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -183,7 +258,9 @@
 			files = (
 				0E52ACE0278FC76D001F6D8F /* ViewController.swift in Sources */,
 				0E52ACDC278FC76D001F6D8F /* AppDelegate.swift in Sources */,
+				C55484CF279837E400FEE6D3 /* AddGroceryVC.swift in Sources */,
 				0E68688B27959EA1007F092A /* House.swift in Sources */,
+				C55484CD279837AB00FEE6D3 /* GroceriesTVC.swift in Sources */,
 				0E6868972796B494007F092A /* HomeTableViewController.swift in Sources */,
 				0E6868952795E2D6007F092A /* HomeController.swift in Sources */,
 				C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */,
@@ -333,13 +410,14 @@
 		};
 		0E52ACF0278FC76F001F6D8F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3387467CFE54E1264810B6B /* Pods-Vesta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PRRBNJ47ZT;
+				DEVELOPMENT_TEAM = UZT55VRV55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Vesta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -352,7 +430,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jin.yang.ng.Vesta;
+				PRODUCT_BUNDLE_IDENTIFIER = jin.yang.ngg.Vesta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -363,12 +441,13 @@
 		};
 		0E52ACF1278FC76F001F6D8F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 852B0947D2ABF36CF4D5A459 /* Pods-Vesta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PRRBNJ47ZT;
+				DEVELOPMENT_TEAM = UZT55VRV55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Vesta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -381,7 +460,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jin.yang.ng.Vesta;
+				PRODUCT_BUNDLE_IDENTIFIER = jin.yang.ngg.Vesta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

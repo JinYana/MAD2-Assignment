@@ -12,73 +12,15 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     var houseList:[House] = []
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        var ref:DatabaseReference!
+        
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
-        ref.child("Houses").observe(DataEventType.value, with:{ snapshot in
-            
-            
-            
-            
-            for child in snapshot.children {
-                //Iterating through all the houses in the database
-                let childSnapshot = snapshot.childSnapshot(forPath: (child as AnyObject).key).childSnapshot(forPath: "userList")
-                if childSnapshot.childSnapshot(forPath: "12345678").exists() {
-
-
-                    let dataChange = snapshot.childSnapshot(forPath: (child as AnyObject).key).value as? [String:AnyObject]
-                    
-                    print(dataChange)
-                    
-                    
-
-
-
-                    let userarray = dataChange!["userList"]?.allKeys as! [String]
-                    var chorearray: [String] = []
-                    if (dataChange!["chores"]?.allKeys) != nil{
-                        chorearray = dataChange!["chores"]?.allKeys as! [String]
-                    }
-                    
-                        
-                    
-                    
-                    
-                    let house:House = House(name: dataChange!["name"] as! String, id: dataChange!["id"] as! String, choreList: chorearray, userList: userarray)
-                    
-                    
-                    
-                    self.houseList.append(house)
-                    
-                    
-                    
-                    
-                    
-
-                    
-                }
-            }
-            print(self.houseList)
-            
-            if let encoded = try? JSONEncoder().encode(self.houseList) {
-                UserDefaults.standard.set(encoded, forKey: "items")
-            }
-
-            
-            
-            
-
-
-
-         })
         
         do {
             let storedObjItem = UserDefaults.standard.object(forKey: "items")
@@ -91,10 +33,10 @@ class HomeTableViewController: UITableViewController {
         
         
         
-        ref.child("Users").child("12345678").observe(DataEventType.value, with:{ snapshot in
-            appDelegate.selectedUser = User(name: snapshot.childSnapshot(forPath: "name").value as! String, mobilenumber: snapshot.childSnapshot(forPath: "mobilenumber").value as! String)
-            
-        })
+//        ref.child("Users").child("12345678").observe(DataEventType.value, with:{ snapshot in
+//            appDelegate.selectedUser = User(name: snapshot.childSnapshot(forPath: "name").value as! String, mobilenumber: snapshot.childSnapshot(forPath: "mobilenumber").value as! String)
+//
+//        })
         
         
         

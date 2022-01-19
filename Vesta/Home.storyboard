@@ -8,13 +8,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Controller-->
         <scene sceneID="BMh-Gz-Bgk">
             <objects>
-                <viewController id="hgr-Z8-LOQ" sceneMemberID="viewController">
+                <viewController id="hgr-Z8-LOQ" customClass="HomeController" customModule="Vesta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jEA-mZ-ywm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="545-uy-Uid">
+                                <rect key="frame" x="146" y="318" width="230" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="housename:" destination="6B9-Zn-CAP" eventType="editingDidEnd" id="elV-3s-67j"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="House Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqT-ch-3D0">
+                                <rect key="frame" x="39" y="325" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9U-ch-zUy">
+                                <rect key="frame" x="160" y="463" width="97" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Join House"/>
+                                <connections>
+                                    <action selector="makehouse:" destination="6B9-Zn-CAP" eventType="touchUpInside" id="5oK-0W-mcV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2L6-7e-xX8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -44,6 +71,7 @@
         <scene sceneID="LzJ-ga-ZVd">
             <objects>
                 <tabBarController id="RKQ-6U-nfP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="AWr-MF-2sW"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qOk-Ix-brT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -145,6 +173,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="RKQ-6U-nfP" kind="show" id="ddJ-kN-hoZ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -155,6 +186,7 @@
                     <navigationItem key="navigationItem" title="Your Houses" id="F9e-pa-BXU">
                         <barButtonItem key="leftBarButtonItem" title="Join Home" id="gG9-Sz-zdH">
                             <connections>
+                                <action selector="joinhouse:" destination="CRE-QW-Dxb" id="uTR-og-9db"/>
                                 <segue destination="hgr-Z8-LOQ" kind="show" id="LTt-WM-aCt"/>
                             </connections>
                         </barButtonItem>

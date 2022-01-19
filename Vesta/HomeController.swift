@@ -31,7 +31,7 @@ class HomeController: UIViewController {
     @IBAction func joinhouse(_ sender: Any) {
         if houseid.text != ""{
             ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-            //Adding the new house to the database
+            //Adding the user to the exisiting house to the database
             guard let key = ref.child("Houses").childByAutoId().key else { return }
             let post = [appDelegate.selectedNum!: true]
             ref.child("Houses").child(houseid.text!).child("userList").updateChildValues(post)

@@ -66,6 +66,7 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate.selectedHouse = houseList[indexPath.row]
         print(houseList[indexPath.row])
+        performSegue(withIdentifier: "ViewChoreGrocery", sender: self)
     }
 
 

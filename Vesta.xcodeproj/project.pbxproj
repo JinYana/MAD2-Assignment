@@ -24,6 +24,8 @@
 		0E6868932795E29A007F092A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6868922795E29A007F092A /* Home.storyboard */; };
 		0E6868952795E2D6007F092A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868942795E2D6007F092A /* HomeController.swift */; };
 		0E6868972796B494007F092A /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868962796B494007F092A /* HomeTableViewController.swift */; };
+		0E8D0F6E27985661005B0CB3 /* NewUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8D0F6D27985661005B0CB3 /* NewUser.storyboard */; };
+		0E8D0F70279859D9005B0CB3 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */; };
 		C55484CD279837AB00FEE6D3 /* GroceriesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */; };
 		C55484CF279837E400FEE6D3 /* AddGroceryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */; };
 		C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5CFA2796AEAE000502DE /* LoginVC.swift */; };
@@ -45,6 +47,8 @@
 		0E6868922795E29A007F092A /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0E6868942795E2D6007F092A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		0E6868962796B494007F092A /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		0E8D0F6D27985661005B0CB3 /* NewUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewUser.storyboard; sourceTree = "<group>"; };
+		0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesTVC.swift; sourceTree = "<group>"; };
 		C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryVC.swift; sourceTree = "<group>"; };
 		C5AC5CFA2796AEAE000502DE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 				0E6868922795E29A007F092A /* Home.storyboard */,
 				0E52ACE7278FC76F001F6D8F /* Assets.xcassets */,
 				0E52ACE9278FC76F001F6D8F /* LaunchScreen.storyboard */,
+				0E8D0F6D27985661005B0CB3 /* NewUser.storyboard */,
 				0E52ACEC278FC76F001F6D8F /* Info.plist */,
 				0E68687D2795658D007F092A /* GoogleService-Info.plist */,
 				0E68688A27959EA1007F092A /* House.swift */,
@@ -101,6 +106,7 @@
 				0E6868962796B494007F092A /* HomeTableViewController.swift */,
 				C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */,
 				C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */,
+				0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 			files = (
 				0E52ACEB278FC76F001F6D8F /* LaunchScreen.storyboard in Resources */,
 				0E6868932795E29A007F092A /* Home.storyboard in Resources */,
+				0E8D0F6E27985661005B0CB3 /* NewUser.storyboard in Resources */,
 				0E68687E2795658D007F092A /* GoogleService-Info.plist in Resources */,
 				0E52ACE8278FC76F001F6D8F /* Assets.xcassets in Resources */,
 				0E52ACE3278FC76D001F6D8F /* Main.storyboard in Resources */,
@@ -197,6 +204,7 @@
 				C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */,
 				0E52ACDE278FC76D001F6D8F /* SceneDelegate.swift in Sources */,
 				0E68688F2795B352007F092A /* Chores.swift in Sources */,
+				0E8D0F70279859D9005B0CB3 /* NewUserViewController.swift in Sources */,
 				0E6868912795BA5B007F092A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

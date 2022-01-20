@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBAction func getOtp(_ sender: Any) {
         // get verification code from phone no
         Auth.auth().settings?.isAppVerificationDisabledForTesting = false
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo.text!, uiDelegate: nil, completion: {verificationId,error in
+        PhoneAuthProvider.provider().verifyPhoneNumber("+65\(phoneNo.text!)", uiDelegate: nil, completion: {verificationId,error in
             
             if(error != nil){
                 
@@ -38,13 +38,14 @@ class ViewController: UIViewController {
             
         })
         performSegue(withIdentifier: "getOTP", sender: self)
+        appDelegate.selectedNum = phoneNo.text
         
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //Hi
+        //
         var ref:DatabaseReference!
         
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
@@ -61,6 +62,15 @@ class ViewController: UIViewController {
             
         })
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard
+                let destination = segue.destination as? LoginVC
+                else {
+                    return
+            }
+        destination.phoneNo = phoneNo.text!
+        }
 
 
 }

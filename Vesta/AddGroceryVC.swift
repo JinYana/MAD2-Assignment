@@ -13,6 +13,8 @@ import AVFoundation
 
 class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
     
+    let session = AVCaptureSession()
+    
     override func viewDidLoad() {
         //code
     }
@@ -20,7 +22,7 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
     var video =  AVCaptureVideoPreviewLayer()
     @IBAction func addGroceryButton(_ sender: Any) {
         //create session
-        let session = AVCaptureSession()
+        
         
         //Device for capture
         let captureDev = AVCaptureDevice.default(for: .video)
@@ -56,25 +58,20 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
     
     
     
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        if metadataObjects != nil && metadataObjects.count != nil{
-            
-            if let object = metadataObjects[0] as? AVMetadataMachineReadableCodeObject{
-                
-                if (object.type == AVMetadataObject.ObjectType.ean13 || object.type==AVMetadataObject.ObjectType.upce) {
-                    
-                    let detectedAlert = UIAlertController(title: "Code", message:object.stringValue, preferredStyle: .alert)
-                    detectedAlert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
-                    detectedAlert.addAction(UIAlertAction(title: "Close", style: .default, handler: {(alert:UIAlertAction!) in session.stopRunning()}))
-                    
-                }
-            }
-            
-        }
-       }
+    
         
     }
-    }
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        for metaData in metadataObjects
+                {
+                    let decodedData:AVMetadataMachineReadableCodeObject = metaData as! AVMetadataMachineReadableCodeObject
+                    print(decodedData.stringValue)
+                    print(decodedData.type)
+                }
+        
+       }
+}
         
         
         

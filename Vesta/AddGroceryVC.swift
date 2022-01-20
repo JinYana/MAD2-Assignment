@@ -64,11 +64,18 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         for metaData in metadataObjects
-                {
-                    let decodedData:AVMetadataMachineReadableCodeObject = metaData as! AVMetadataMachineReadableCodeObject
+        {
+            
+            
+            
+            
+            
+            
+            
+            let decodedData:AVMetadataMachineReadableCodeObject = metaData as! AVMetadataMachineReadableCodeObject
                     print(decodedData.stringValue)
                     print(decodedData.type)
-                }
+        }
         
        }
 }

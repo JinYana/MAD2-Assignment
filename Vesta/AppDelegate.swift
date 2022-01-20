@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var selectedHouse:House?
     var selectedUser:User?
-    
+    var selectedNum: String!
     var verId: String? = " "
 
 

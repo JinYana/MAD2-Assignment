@@ -44,6 +44,7 @@
         <scene sceneID="LzJ-ga-ZVd">
             <objects>
                 <tabBarController id="RKQ-6U-nfP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jsQ-qX-SKj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qOk-Ix-brT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -145,6 +146,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="RKQ-6U-nfP" kind="show" identifier="ViewChoreGrocery" id="i7B-JB-3EX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -215,7 +219,8 @@
                     <navigationItem key="navigationItem" id="iR2-Yg-By9">
                         <barButtonItem key="rightBarButtonItem" title="Add Grocery" id="9Cc-9O-Iax">
                             <connections>
-                                <segue destination="iXt-RN-Fdb" kind="show" id="vHr-in-9C0"/>
+                                <action selector="toaddGrocPage:" destination="RcE-3t-1mJ" id="tqF-bC-jlg"/>
+                                <segue destination="iXt-RN-Fdb" kind="show" identifier="addGroc" id="vHr-in-9C0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

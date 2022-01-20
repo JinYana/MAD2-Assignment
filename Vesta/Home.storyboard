@@ -44,7 +44,6 @@
         <scene sceneID="LzJ-ga-ZVd">
             <objects>
                 <tabBarController id="RKQ-6U-nfP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="jsQ-qX-SKj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qOk-Ix-brT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -251,7 +250,6 @@
                         <viewLayoutGuide key="safeArea" id="uL2-Dz-yut"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6P6-f9-At0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ja7-OC-dMe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

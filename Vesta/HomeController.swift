@@ -14,8 +14,9 @@ class HomeController: UIViewController {
     var ref :DatabaseReference!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    @IBOutlet weak var houseid: UITextField!
     
+    
+    @IBOutlet weak var houseid: UITextField!
     @IBOutlet weak var housename: UITextField!
     
     override func viewDidLoad() {
@@ -26,9 +27,8 @@ class HomeController: UIViewController {
         
         
     }
-
-    
     @IBAction func joinhouse(_ sender: Any) {
+        
         if houseid.text != ""{
             ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
             //Adding the user to the exisiting house to the database
@@ -37,6 +37,9 @@ class HomeController: UIViewController {
             ref.child("Houses").child(houseid.text!).child("userList").updateChildValues(post)
         }
     }
+    
+    
+    
     
     @IBAction func makehouse(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

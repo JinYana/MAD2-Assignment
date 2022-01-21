@@ -13,6 +13,7 @@ var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 class ViewController: UIViewController {
     var verification_id : String? = nil
+    
 
     @IBOutlet weak var phoneNo: UITextField!
     

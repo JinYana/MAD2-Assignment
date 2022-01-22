@@ -15,7 +15,8 @@ import Firebase
 
 class LoginVC: UIViewController {
     var houseList:[House] = []
-    var phoneNo = "0"
+    var phoneNo  = ""
+    
 
 
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -110,8 +111,16 @@ class LoginVC: UIViewController {
                     
                     ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
                     
+                    //Setting up selected user in app delegate
                     ref.child("Users").observe(DataEventType.value, with:{ snapshot in
-                        if !snapshot.childSnapshot(forPath: phoneNo).exists(){
+                        let name = snapshot.childSnapshot(forPath: appDelegate.selectedNum).childSnapshot(forPath: "name")
+                        
+                        appDelegate.selectedUser = User(name: name.value as! String, mobilenumber: appDelegate.selectedNum)
+                    })
+                    
+                    //Populating houselist for table view later on
+                    ref.child("Users").observe(DataEventType.value, with:{ snapshot in
+                        if !snapshot.childSnapshot(forPath: appDelegate.selectedNum).exists(){
                             let storyboard = UIStoryboard(name: "NewUser", bundle: nil)
                             let vc = storyboard.instantiateViewController(withIdentifier: "NewUser") as UIViewController
                                 vc.modalPresentationStyle = .fullScreen
@@ -120,8 +129,8 @@ class LoginVC: UIViewController {
                         else{
                             self.warning.isHidden = true
                             print("Authentication Succeed")
-                            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-                            let vc = storyboard.instantiateViewController(withIdentifier: "Home") as UIViewController
+                            let storyboard = UIStoryboard(name: "HouseSelector", bundle: nil)
+                            let vc = storyboard.instantiateViewController(withIdentifier: "HouseSelector") as UIViewController
                                 vc.modalPresentationStyle = .fullScreen
                             self.present(vc,animated: true,completion: nil)
                             
@@ -137,12 +146,12 @@ class LoginVC: UIViewController {
                                 for child in snapshot.children {
                                     //Iterating through all the houses in the database
                                     let childSnapshot = snapshot.childSnapshot(forPath: (child as AnyObject).key).childSnapshot(forPath: "userList")
-                                    if childSnapshot.childSnapshot(forPath: "12345678").exists() {
+                                    if childSnapshot.childSnapshot(forPath: appDelegate.selectedNum).exists() {
 
 
                                         let dataChange = snapshot.childSnapshot(forPath: (child as AnyObject).key).value as? [String:AnyObject]
                                         
-                                        print(dataChange)
+                                        
                                         
                                         
 
@@ -155,6 +164,7 @@ class LoginVC: UIViewController {
                                         }
                                         
                                             
+                                        
                                         
                                         
                                         
@@ -172,7 +182,7 @@ class LoginVC: UIViewController {
                                         
                                     }
                                 }
-                                print(self.houseList)
+                                
                                 
                                 if let encoded = try? JSONEncoder().encode(self.houseList) {
                                     UserDefaults.standard.set(encoded, forKey: "items")

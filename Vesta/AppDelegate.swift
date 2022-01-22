@@ -12,11 +12,11 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
     
     var selectedHouse:House?
     var selectedUser:User?
     var selectedNum: String!
+    var selectedChores: Chores?
     var verId: String? = " "
 
 

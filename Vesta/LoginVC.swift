@@ -19,7 +19,7 @@ class LoginVC: UIViewController {
     
 
 
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var ref:DatabaseReference!
     
     
@@ -85,7 +85,8 @@ class LoginVC: UIViewController {
             if let encoded = try? JSONEncoder().encode(self.houseList) {
                 UserDefaults.standard.set(encoded, forKey: "items")
             }
-
+            
+            
             
             
             
@@ -153,21 +154,13 @@ class LoginVC: UIViewController {
                                         
                                         
                                         
-                                        
-
-
-
                                         let userarray = dataChange!["userList"]?.allKeys as! [String]
                                         var chorearray: [String] = []
-                                        if (dataChange!["chores"]?.allKeys) != nil{
-                                            chorearray = dataChange!["chores"]?.allKeys as! [String]
+                                        if (dataChange!["choreList"]?.allKeys) != nil{
+                                            chorearray = dataChange!["choreList"]?.allKeys as! [String]
                                         }
                                         
-                                            
-                                        
-                                        
-                                        
-                                        
+                                
                                         let house:House = House(name: dataChange!["name"] as! String, id: dataChange!["id"] as! String, choreList: chorearray, userList: userarray)
                                         
                                         
@@ -178,15 +171,24 @@ class LoginVC: UIViewController {
                                         
                                         
                                         
+                                        
+                                        
 
                                         
                                     }
                                 }
                                 
+                               
+                                
+                                
+                                
                                 
                                 if let encoded = try? JSONEncoder().encode(self.houseList) {
-                                    UserDefaults.standard.set(encoded, forKey: "items")
+                                    UserDefaults.standard.set(encoded, forKey: "houses")
+                                    
                                 }
+                        
+
 
                                 
                                 

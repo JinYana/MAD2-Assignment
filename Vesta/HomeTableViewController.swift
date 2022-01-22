@@ -13,6 +13,8 @@ import UIKit
 class HomeTableViewController: UITableViewController {
     var houseList:[House] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var ref:DatabaseReference!
+    var choreList:[Chores] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,9 +25,9 @@ class HomeTableViewController: UITableViewController {
         
         
         do {
-            let storedObjItem = UserDefaults.standard.object(forKey: "items")
+            let storedObjItem = UserDefaults.standard.object(forKey: "houses")
             houseList = try JSONDecoder().decode([House].self, from: storedObjItem as! Data)
-            
+
         } catch let err {
             print(err)
         }
@@ -33,11 +35,20 @@ class HomeTableViewController: UITableViewController {
         
         
         
+        //setting up selected user in app delegate
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
-//        ref.child("Users").child("12345678").observe(DataEventType.value, with:{ snapshot in
-//            appDelegate.selectedUser = User(name: snapshot.childSnapshot(forPath: "name").value as! String, mobilenumber: snapshot.childSnapshot(forPath: "mobilenumber").value as! String)
-//
-//        })
+        ref.child("Users").observe(DataEventType.value, with:{ snapshot in
+            
+            let username = snapshot.childSnapshot(forPath: self.appDelegate.selectedNum).childSnapshot(forPath: "name").value
+            
+            self.appDelegate.selectedUser = User(name: username as! String, mobilenumber: self.appDelegate.selectedNum)
+        })
+        
+        
+        
+        
+
         
         
         
@@ -66,12 +77,40 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate.selectedHouse = houseList[indexPath.row]
-        print(appDelegate.selectedHouse?.name)
-        print(houseList[indexPath.row])
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "Home") as UIViewController
             vc.modalPresentationStyle = .fullScreen
         self.present(vc,animated: true,completion: nil)
+        
+        
+        //getting the users assigned chores from the database
+        ref.child("Chores").observe(DataEventType.value, with:{ [self] snapshot in
+            let choreidlist:[String] = appDelegate.selectedHouse?.choreList as? [String] ?? []
+            
+            for i in choreidlist{
+                
+                let databasechores = snapshot.childSnapshot(forPath: i)
+                let assigneduser = databasechores.childSnapshot(forPath: "user").value
+                
+                
+                if assigneduser as! String == self.appDelegate.selectedUser!.mobilenumber{
+                    
+                    let chore = Chores(name: databasechores.childSnapshot(forPath: "name").value as! String, id: databasechores.childSnapshot(forPath: "id").value as! String, remarks: databasechores.childSnapshot(forPath: "remarks").value as! String, user: databasechores.childSnapshot(forPath: "user").value as! String)
+                    choreList.append(chore)
+                }
+            }
+            
+            if let encoded = try? JSONEncoder().encode(self.choreList) {
+                UserDefaults.standard.set(encoded, forKey: "chores")
+                
+            }
+        })
+        
+        
+        
+        
+        
+        
     }
 
 

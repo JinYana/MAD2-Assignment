@@ -12,13 +12,13 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     var houseList:[House] = []
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
         
         
         
@@ -29,6 +29,7 @@ class HomeTableViewController: UITableViewController {
         } catch let err {
             print(err)
         }
+        print(houseList[0].id)
         
         
         
@@ -65,8 +66,12 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate.selectedHouse = houseList[indexPath.row]
+        print(appDelegate.selectedHouse?.name)
         print(houseList[indexPath.row])
-        performSegue(withIdentifier: "ViewChoreGrocery", sender: self)
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Home") as UIViewController
+            vc.modalPresentationStyle = .fullScreen
+        self.present(vc,animated: true,completion: nil)
     }
 
 

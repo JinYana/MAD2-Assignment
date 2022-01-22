@@ -129,8 +129,8 @@ class LoginVC: UIViewController {
                         else{
                             self.warning.isHidden = true
                             print("Authentication Succeed")
-                            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-                            let vc = storyboard.instantiateViewController(withIdentifier: "Home") as UIViewController
+                            let storyboard = UIStoryboard(name: "HouseSelector", bundle: nil)
+                            let vc = storyboard.instantiateViewController(withIdentifier: "HouseSelector") as UIViewController
                                 vc.modalPresentationStyle = .fullScreen
                             self.present(vc,animated: true,completion: nil)
                             
@@ -151,7 +151,7 @@ class LoginVC: UIViewController {
 
                                         let dataChange = snapshot.childSnapshot(forPath: (child as AnyObject).key).value as? [String:AnyObject]
                                         
-                                        print(dataChange)
+                                        
                                         
                                         
 
@@ -182,7 +182,7 @@ class LoginVC: UIViewController {
                                         
                                     }
                                 }
-                                print(self.houseList)
+                                
                                 
                                 if let encoded = try? JSONEncoder().encode(self.houseList) {
                                     UserDefaults.standard.set(encoded, forKey: "items")

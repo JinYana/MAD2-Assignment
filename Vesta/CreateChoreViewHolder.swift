@@ -19,6 +19,7 @@ class CreateChoreViewHolder: UIViewController{
     var pickerview = UIPickerView()
     var users:[User] = []
     var ref:DatabaseReference!
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +34,7 @@ class CreateChoreViewHolder: UIViewController{
             
             
             
-            let dataChange = snapshot.childSnapshot(forPath: "Houses").childSnapshot(forPath: appDelegate.selectedHouse!.id).value as? [String:AnyObject]
+            let dataChange = snapshot.childSnapshot(forPath: "Houses").childSnapshot(forPath: self.appDelegate.selectedHouse!.id).value as? [String:AnyObject]
             print(dataChange)
             
             let userarray = dataChange!["userList"]?.allKeys as! [String]

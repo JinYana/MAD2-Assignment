@@ -7,17 +7,17 @@
 
 import Foundation
 
-class Chores {
+class Chores : Codable{
     let name:String
     let user:String
-    let date:Date
+    let remarks:String
     let id: String
     
     
-    init(name:String, id:String, date:Date, user:String){
+    init(name:String, id:String, remarks:String, user:String){
         self.name = name
         self.id = id
-        self.date = date
+        self.remarks = remarks
         self.user = user
     }
 }

@@ -43,7 +43,8 @@ class CreateChoreViewHolder: UIViewController{
             
             for i in userarray{
                 let dataChange = snapshot.childSnapshot(forPath: "Users").childSnapshot(forPath: i).value as? [String:AnyObject]
-                let user = User(name: dataChange!["name"] as! String, mobilenumber: i)
+                let role = snapshot.childSnapshot(forPath: "Houses").childSnapshot(forPath: self.appDelegate.selectedHouse!.id).childSnapshot(forPath: "userList").childSnapshot(forPath: i).value as! String
+                                                  let user = User(name: dataChange!["name"] as! String, mobilenumber: i, role: role)
                 self.users.append(user)
                 
                 

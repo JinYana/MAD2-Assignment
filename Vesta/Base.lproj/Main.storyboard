@@ -34,6 +34,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="getOtp:" destination="nAl-3S-hn9" eventType="touchUpInside" id="Ath-Nd-2iG"/>
+                                    <segue destination="iLk-X0-a00" kind="show" identifier="getOtp" id="cwB-yg-4Ez"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,7 +44,6 @@
                     <navigationItem key="navigationItem" id="JA5-TA-ikB"/>
                     <connections>
                         <outlet property="phoneNo" destination="TUF-g9-EvW" id="kgO-hO-pow"/>
-                        <segue destination="iLk-X0-a00" kind="show" identifier="getOTP" id="Xyb-j5-Xo5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voX-5I-woT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

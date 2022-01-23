@@ -15,6 +15,7 @@
 		0E52ACE8278FC76F001F6D8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E52ACE7278FC76F001F6D8F /* Assets.xcassets */; };
 		0E52ACEB278FC76F001F6D8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E52ACE9278FC76F001F6D8F /* LaunchScreen.storyboard */; };
 		0E5879CF279D51C3005E0981 /* CompleteChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5879CE279D51C3005E0981 /* CompleteChoreViewController.swift */; };
+		0E5879D3279DBDC4005E0981 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5879D2279DBDC4005E0981 /* PopupViewController.swift */; };
 		0E68687E2795658D007F092A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E68687D2795658D007F092A /* GoogleService-Info.plist */; };
 		0E686881279566B1007F092A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686880279566B1007F092A /* FirebaseAnalytics */; };
 		0E686883279566B1007F092A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686882279566B1007F092A /* FirebaseAuth */; };
@@ -46,6 +47,7 @@
 		0E52ACEA278FC76F001F6D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E52ACEC278FC76F001F6D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E5879CE279D51C3005E0981 /* CompleteChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteChoreViewController.swift; sourceTree = "<group>"; };
+		0E5879D2279DBDC4005E0981 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		0E68687D2795658D007F092A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0E68688A27959EA1007F092A /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		0E68688E2795B352007F092A /* Chores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chores.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				0E68D224279B0BC800A7667B /* CreateChoreViewHolder.swift */,
 				0E805AFD279C463400F6AB18 /* ViewChoreTableViewController.swift */,
 				0E5879CE279D51C3005E0981 /* CompleteChoreViewController.swift */,
+				0E5879D2279DBDC4005E0981 /* PopupViewController.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				0E68688B27959EA1007F092A /* House.swift in Sources */,
 				C55484CD279837AB00FEE6D3 /* GroceriesTVC.swift in Sources */,
 				0E6868972796B494007F092A /* HomeTableViewController.swift in Sources */,
+				0E5879D3279DBDC4005E0981 /* PopupViewController.swift in Sources */,
 				0E5879CF279D51C3005E0981 /* CompleteChoreViewController.swift in Sources */,
 				0E6868952795E2D6007F092A /* HomeViewController.swift in Sources */,
 				C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */,

@@ -15,6 +15,7 @@ class HomeTableViewController: UITableViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var ref:DatabaseReference!
     var choreList:[Chores] = []
+    var role: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,6 +28,8 @@ class HomeTableViewController: UITableViewController {
             self.houseList.removeAll()
             
             
+            
+            
             for child in snapshot.children {
                 //Iterating through all the houses in the database
                 let childSnapshot = snapshot.childSnapshot(forPath: (child as AnyObject).key).childSnapshot(forPath: "userList")
@@ -34,6 +37,8 @@ class HomeTableViewController: UITableViewController {
 
 
                     let dataChange = snapshot.childSnapshot(forPath: (child as AnyObject).key).value as? [String:AnyObject]
+                    
+                    self.role = snapshot.childSnapshot(forPath: (child as AnyObject).key).childSnapshot(forPath: "userList").childSnapshot(forPath: self.appDelegate.selectedNum).value as! String
                     
                     
                     
@@ -75,7 +80,7 @@ class HomeTableViewController: UITableViewController {
             
             let username = snapshot.childSnapshot(forPath: self.appDelegate.selectedNum).childSnapshot(forPath: "name").value
             
-            self.appDelegate.selectedUser = User(name: username as! String, mobilenumber: self.appDelegate.selectedNum)
+            self.appDelegate.selectedUser = User(name: username as! String, mobilenumber: self.appDelegate.selectedNum, role: self.role)
         })
         
         

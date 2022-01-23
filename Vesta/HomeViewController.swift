@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class HomeController: UIViewController {
+class HomeViewController: UIViewController {
 
     var ref :DatabaseReference!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -17,8 +17,9 @@ class HomeController: UIViewController {
     
     
     @IBOutlet weak var houseid: UITextField!
-    @IBOutlet weak var housename: UITextField!
     
+    
+    @IBOutlet weak var housename: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +43,6 @@ class HomeController: UIViewController {
     
     
     @IBAction func makehouse(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if housename.text != ""{
             ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
             //Adding the new house to the database
@@ -56,6 +56,8 @@ class HomeController: UIViewController {
             let post2 = [appDelegate.selectedUser?.mobilenumber: true]
             let childUpdates2 = ["/Houses/\(key)/userList": post2]
             ref.updateChildValues(childUpdates2)
+            
+            
         }
     }
 }

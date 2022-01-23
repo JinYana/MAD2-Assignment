@@ -18,20 +18,53 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        
-        
-        
-        
-        
-        do {
-            let storedObjItem = UserDefaults.standard.object(forKey: "houses")
-            houseList = try JSONDecoder().decode([House].self, from: storedObjItem as! Data)
 
-        } catch let err {
-            print(err)
-        }
-        print(houseList[0].id)
+        
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        ref.child("Houses").observe(DataEventType.value, with:{ snapshot in
+            
+            self.houseList.removeAll()
+            
+            
+            for child in snapshot.children {
+                //Iterating through all the houses in the database
+                let childSnapshot = snapshot.childSnapshot(forPath: (child as AnyObject).key).childSnapshot(forPath: "userList")
+                if childSnapshot.childSnapshot(forPath: self.appDelegate.selectedNum).exists() {
+
+
+                    let dataChange = snapshot.childSnapshot(forPath: (child as AnyObject).key).value as? [String:AnyObject]
+                    
+                    
+                    
+                    let userarray = dataChange!["userList"]?.allKeys as! [String]
+                    var chorearray: [String] = []
+                    if (dataChange!["choreList"]?.allKeys) != nil{
+                        chorearray = dataChange!["choreList"]?.allKeys as! [String]
+                    }
+                    
+            
+                    let house:House = House(name: dataChange!["name"] as! String, id: dataChange!["id"] as! String, choreList: chorearray, userList: userarray)
+                    
+                    
+                    
+                    self.houseList.append(house)
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+
+                    
+                }
+            }
+            
+            self.tableView.reloadData()
+
+
+         })
         
         
         
@@ -83,28 +116,7 @@ class HomeTableViewController: UITableViewController {
         self.present(vc,animated: true,completion: nil)
         
         
-        //getting the users assigned chores from the database
-        ref.child("Chores").observe(DataEventType.value, with:{ [self] snapshot in
-            let choreidlist:[String] = appDelegate.selectedHouse?.choreList as? [String] ?? []
-            
-            for i in choreidlist{
-                
-                let databasechores = snapshot.childSnapshot(forPath: i)
-                let assigneduser = databasechores.childSnapshot(forPath: "user").value
-                
-                
-                if assigneduser as! String == self.appDelegate.selectedUser!.mobilenumber{
-                    
-                    let chore = Chores(name: databasechores.childSnapshot(forPath: "name").value as! String, id: databasechores.childSnapshot(forPath: "id").value as! String, remarks: databasechores.childSnapshot(forPath: "remarks").value as! String, user: databasechores.childSnapshot(forPath: "user").value as! String)
-                    choreList.append(chore)
-                }
-            }
-            
-            if let encoded = try? JSONEncoder().encode(self.choreList) {
-                UserDefaults.standard.set(encoded, forKey: "chores")
-                
-            }
-        })
+        
         
         
         

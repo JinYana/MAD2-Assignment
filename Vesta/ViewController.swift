@@ -48,6 +48,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         //
         
+        if Auth.auth().currentUser != nil{
+            print("Authentication Succeed")
+            let storyboard = UIStoryboard(name: "HouseSelector", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "HouseSelector") as UIViewController
+                vc.modalPresentationStyle = .fullScreen
+            self.present(vc,animated: true,completion: nil)
+            
+            appDelegate.selectedNum = String((Auth.auth().currentUser?.phoneNumber?.dropFirst(3))!) as String
+        }
+        
         var ref:DatabaseReference!
         
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()

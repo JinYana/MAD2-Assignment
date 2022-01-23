@@ -17,14 +17,34 @@ class ViewChoreTableViewController:UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        //getting the users assigned chores from the database
+        ref.child("Chores").observe(DataEventType.value, with:{ [self] snapshot in
+            
+            choreList.removeAll()
+            let choreidlist:[String] = appDelegate.selectedHouse?.choreList as? [String] ?? []
+            
+            for i in choreidlist{
+                
+                let databasechores = snapshot.childSnapshot(forPath: i)
+                let assigneduser = databasechores.childSnapshot(forPath: "user").value
+                
+                
+                if assigneduser as! String == self.appDelegate.selectedUser!.mobilenumber{
+                    
+                    let chore = Chores(name: databasechores.childSnapshot(forPath: "name").value as! String, id: databasechores.childSnapshot(forPath: "id").value as! String, remarks: databasechores.childSnapshot(forPath: "remarks").value as! String, user: databasechores.childSnapshot(forPath: "user").value as! String)
+                    choreList.append(chore)
+                    print(choreList)
+                }
+            }
+            
+            
+            self.tableView.reloadData()
+        })
         
-        do {
-            let storedObjItem = UserDefaults.standard.object(forKey: "chores")
-            choreList = try JSONDecoder().decode([Chores].self, from: storedObjItem as! Data)
-
-        } catch let err {
-            print(err)
-        }
+        
+        
+        
         
         
         
@@ -36,10 +56,12 @@ class ViewChoreTableViewController:UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
         return choreList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "chore", for: indexPath)
         
         cell.textLabel!.text = choreList[indexPath.row].name
@@ -53,6 +75,8 @@ class ViewChoreTableViewController:UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        appDelegate.selectedChores = choreList[indexPath.row]
 
     }
 }

@@ -13,31 +13,75 @@ import UIKit
 class HomeTableViewController: UITableViewController {
     var houseList:[House] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var ref:DatabaseReference!
+    var choreList:[Chores] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
         
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
-        
-        
-        
-        
-        do {
-            let storedObjItem = UserDefaults.standard.object(forKey: "items")
-            houseList = try JSONDecoder().decode([House].self, from: storedObjItem as! Data)
+        ref.child("Houses").observe(DataEventType.value, with:{ snapshot in
             
-        } catch let err {
-            print(err)
-        }
-        print(houseList[0].id)
+            self.houseList.removeAll()
+            
+            
+            for child in snapshot.children {
+                //Iterating through all the houses in the database
+                let childSnapshot = snapshot.childSnapshot(forPath: (child as AnyObject).key).childSnapshot(forPath: "userList")
+                if childSnapshot.childSnapshot(forPath: self.appDelegate.selectedNum).exists() {
+
+
+                    let dataChange = snapshot.childSnapshot(forPath: (child as AnyObject).key).value as? [String:AnyObject]
+                    
+                    
+                    
+                    let userarray = dataChange!["userList"]?.allKeys as! [String]
+                    var chorearray: [String] = []
+                    if (dataChange!["choreList"]?.allKeys) != nil{
+                        chorearray = dataChange!["choreList"]?.allKeys as! [String]
+                    }
+                    
+            
+                    let house:House = House(name: dataChange!["name"] as! String, id: dataChange!["id"] as! String, choreList: chorearray, userList: userarray)
+                    
+                    
+                    
+                    self.houseList.append(house)
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+
+                    
+                }
+            }
+            
+            self.tableView.reloadData()
+
+
+         })
+        
+        
+        
+        //setting up selected user in app delegate
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+        
+        ref.child("Users").observe(DataEventType.value, with:{ snapshot in
+            
+            let username = snapshot.childSnapshot(forPath: self.appDelegate.selectedNum).childSnapshot(forPath: "name").value
+            
+            self.appDelegate.selectedUser = User(name: username as! String, mobilenumber: self.appDelegate.selectedNum)
+        })
         
         
         
         
-//        ref.child("Users").child("12345678").observe(DataEventType.value, with:{ snapshot in
-//            appDelegate.selectedUser = User(name: snapshot.childSnapshot(forPath: "name").value as! String, mobilenumber: snapshot.childSnapshot(forPath: "mobilenumber").value as! String)
-//
-//        })
+
         
         
         
@@ -66,12 +110,19 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         appDelegate.selectedHouse = houseList[indexPath.row]
-        print(appDelegate.selectedHouse?.name)
-        print(houseList[indexPath.row])
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "Home") as UIViewController
             vc.modalPresentationStyle = .fullScreen
         self.present(vc,animated: true,completion: nil)
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
 

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Controller-->
+        <!--Home View Controller-->
         <scene sceneID="BMh-Gz-Bgk">
             <objects>
-                <viewController id="hgr-Z8-LOQ" customClass="HomeController" customModule="Vesta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hgr-Z8-LOQ" customClass="HomeViewController" customModule="Vesta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jEA-mZ-ywm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="2457.971014492754" y="512.94642857142856"/>
         </scene>
-        <!--Home Controller-->
+        <!--Home View Controller-->
         <scene sceneID="jis-XN-Ok3">
             <objects>
-                <viewController id="6B9-Zn-CAP" customClass="HomeController" customModule="Vesta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6B9-Zn-CAP" customClass="HomeViewController" customModule="Vesta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cEh-5D-DMy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,9 +64,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="housename:" destination="6B9-Zn-CAP" eventType="editingDidEnd" id="IiR-Ma-3LI"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="House Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OS4-5k-ZI2">
                                 <rect key="frame" x="39" y="438" width="99" height="21"/>
@@ -90,7 +87,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gLx-qd-pga"/>
                     <connections>
-                        <outlet property="housename" destination="BXx-mJ-LKl" id="BlH-OZ-Mii"/>
+                        <outlet property="housename" destination="BXx-mJ-LKl" id="sbw-o8-ZaU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qs-X8-OMN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -146,7 +143,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Make Home" id="BGS-fo-BDz">
                             <connections>
-                                <segue destination="6B9-Zn-CAP" kind="show" id="zuL-Ds-aja"/>
+                                <segue destination="6B9-Zn-CAP" kind="show" id="pGv-f5-hM1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

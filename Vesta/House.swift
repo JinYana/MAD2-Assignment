@@ -10,7 +10,7 @@ import Foundation
 class House:Codable{
     let name:String
     let id:String
-    let choreList: [String?]
+    var choreList: [String?]
     let userList: [String?]
     
     init(name:String, id:String, choreList:[String?], userList:[String?]){

@@ -22,13 +22,13 @@ class ViewChoreTableViewController:UITableViewController{
         ref.child("Chores").observe(DataEventType.value, with:{ [self] snapshot in
             
             choreList.removeAll()
-            let choreidlist:[String] = appDelegate.selectedHouse?.choreList as? [String] ?? []
             
-            for i in choreidlist{
+            
+            for i in snapshot.children{
                 
-                let databasechores = snapshot.childSnapshot(forPath: i)
+                let databasechores = snapshot.childSnapshot(forPath: (i as AnyObject).key)
                 let assigneduser = databasechores.childSnapshot(forPath: "user").value
-                
+                       
                 
                 if assigneduser as! String == self.appDelegate.selectedUser!.mobilenumber{
                     

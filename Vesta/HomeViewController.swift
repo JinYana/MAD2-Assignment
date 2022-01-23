@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
             ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
             //Adding the user to the exisiting house to the database
             guard let key = ref.child("Houses").childByAutoId().key else { return }
-            let post = [appDelegate.selectedNum!: true]
+            let post = [appDelegate.selectedNum!: "member"]
             ref.child("Houses").child(houseid.text!).child("userList").updateChildValues(post)
         }
     }
@@ -53,7 +53,7 @@ class HomeViewController: UIViewController {
             ref.updateChildValues(childUpdates)
             
             //Adding user to newly created house
-            let post2 = [appDelegate.selectedUser?.mobilenumber: true]
+            let post2 = [appDelegate.selectedUser?.mobilenumber: "owner"]
             let childUpdates2 = ["/Houses/\(key)/userList": post2]
             ref.updateChildValues(childUpdates2)
             

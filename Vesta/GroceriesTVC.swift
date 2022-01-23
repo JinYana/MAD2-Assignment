@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 class GroceriesTVC:UITableViewController{
+    var grocList:[Groceries] = []
     
     
     var ref:DatabaseReference!
@@ -38,5 +39,21 @@ class GroceriesTVC:UITableViewController{
         
     }
     
+    
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//    
+////    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+////
+////
+////
+////    }
+//    
+    
+   
     
 }

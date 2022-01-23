@@ -33,6 +33,8 @@
 		0E8D0F70279859D9005B0CB3 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */; };
 		C55484CD279837AB00FEE6D3 /* GroceriesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */; };
 		C55484CF279837E400FEE6D3 /* AddGroceryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */; };
+		C56924FF279DDE50003C6F47 /* ConfirmAddGroceryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */; };
+		C591953F279DB95C00F13658 /* Groceries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591953E279DB95C00F13658 /* Groceries.swift */; };
 		C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5CFA2796AEAE000502DE /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesTVC.swift; sourceTree = "<group>"; };
 		C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryVC.swift; sourceTree = "<group>"; };
+		C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAddGroceryVc.swift; sourceTree = "<group>"; };
+		C591953E279DB95C00F13658 /* Groceries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groceries.swift; sourceTree = "<group>"; };
 		C5AC5CFA2796AEAE000502DE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +126,8 @@
 				0E805AFD279C463400F6AB18 /* ViewChoreTableViewController.swift */,
 				0E5879CE279D51C3005E0981 /* CompleteChoreViewController.swift */,
 				0E5879D2279DBDC4005E0981 /* PopupViewController.swift */,
+				C591953E279DB95C00F13658 /* Groceries.swift */,
+				C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -224,8 +230,10 @@
 				0E52ACDE278FC76D001F6D8F /* SceneDelegate.swift in Sources */,
 				0E805AFE279C463400F6AB18 /* ViewChoreTableViewController.swift in Sources */,
 				0E68688F2795B352007F092A /* Chores.swift in Sources */,
+				C591953F279DB95C00F13658 /* Groceries.swift in Sources */,
 				0E8D0F70279859D9005B0CB3 /* NewUserViewController.swift in Sources */,
 				0E6868912795BA5B007F092A /* User.swift in Sources */,
+				C56924FF279DDE50003C6F47 /* ConfirmAddGroceryVc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +383,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PRRBNJ47ZT;
+				DEVELOPMENT_TEAM = UZT55VRV55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Vesta/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow To Open Camera?";

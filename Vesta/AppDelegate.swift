@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var selectedNum: String!
     var selectedChores: Chores?
     var verId: String? = " "
+    var productName:String?
+    var productCat:String?
 
 
 

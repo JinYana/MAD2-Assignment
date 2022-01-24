@@ -17,6 +17,7 @@ class ViewChoreTableViewController:UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         //getting the users assigned chores from the database
         ref.child("Chores").observe(DataEventType.value, with:{ [self] snapshot in
@@ -30,11 +31,14 @@ class ViewChoreTableViewController:UITableViewController{
                 let assigneduser = databasechores.childSnapshot(forPath: "user").value
                        
                 
-                if assigneduser as! String == self.appDelegate.selectedUser!.mobilenumber{
+                if assigneduser as! String == self.appDelegate.selectedNum{
                     
-                    let chore = Chores(name: databasechores.childSnapshot(forPath: "name").value as! String, id: databasechores.childSnapshot(forPath: "id").value as! String, remarks: databasechores.childSnapshot(forPath: "remarks").value as! String, user: databasechores.childSnapshot(forPath: "user").value as! String)
-                    choreList.append(chore)
-                    print(choreList)
+                    let chore = Chores(name: databasechores.childSnapshot(forPath: "name").value as! String, id: databasechores.childSnapshot(forPath: "id").value as! String, remarks: databasechores.childSnapshot(forPath: "remarks").value as! String, user: databasechores.childSnapshot(forPath: "user").value as! String, houseid: databasechores.childSnapshot(forPath: "houseid").value as! String)
+                    if chore.houseid == self.appDelegate.selectedHouse!.id{
+                        choreList.append(chore)
+                    }
+                    
+                    
                 }
             }
             

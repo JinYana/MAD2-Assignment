@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             
             
         })
-        performSegue(withIdentifier: "getOTP", sender: self)
+        
         appDelegate.selectedNum = phoneNo.text
         
         

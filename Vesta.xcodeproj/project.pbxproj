@@ -16,6 +16,8 @@
 		0E52ACEB278FC76F001F6D8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E52ACE9278FC76F001F6D8F /* LaunchScreen.storyboard */; };
 		0E5879CF279D51C3005E0981 /* CompleteChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5879CE279D51C3005E0981 /* CompleteChoreViewController.swift */; };
 		0E5879D3279DBDC4005E0981 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5879D2279DBDC4005E0981 /* PopupViewController.swift */; };
+		0E5EAEA3279EEF16003777A4 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EAEA2279EEF16003777A4 /* LandingPageViewController.swift */; };
+		0E5EAEA5279F3648003777A4 /* IAPDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EAEA4279F3648003777A4 /* IAPDelegate.swift */; };
 		0E68687E2795658D007F092A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E68687D2795658D007F092A /* GoogleService-Info.plist */; };
 		0E686881279566B1007F092A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686880279566B1007F092A /* FirebaseAnalytics */; };
 		0E686883279566B1007F092A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686882279566B1007F092A /* FirebaseAuth */; };
@@ -50,6 +52,8 @@
 		0E52ACEC278FC76F001F6D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E5879CE279D51C3005E0981 /* CompleteChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteChoreViewController.swift; sourceTree = "<group>"; };
 		0E5879D2279DBDC4005E0981 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		0E5EAEA2279EEF16003777A4 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
+		0E5EAEA4279F3648003777A4 /* IAPDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPDelegate.swift; sourceTree = "<group>"; };
 		0E68687D2795658D007F092A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0E68688A27959EA1007F092A /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		0E68688E2795B352007F092A /* Chores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chores.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				0E5879D2279DBDC4005E0981 /* PopupViewController.swift */,
 				C591953E279DB95C00F13658 /* Groceries.swift */,
 				C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */,
+				0E5EAEA2279EEF16003777A4 /* LandingPageViewController.swift */,
+				0E5EAEA4279F3648003777A4 /* IAPDelegate.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E52ACE0278FC76D001F6D8F /* ViewController.swift in Sources */,
+				0E5EAEA5279F3648003777A4 /* IAPDelegate.swift in Sources */,
 				0E52ACDC278FC76D001F6D8F /* AppDelegate.swift in Sources */,
 				0E68D225279B0BC800A7667B /* CreateChoreViewHolder.swift in Sources */,
 				C55484CF279837E400FEE6D3 /* AddGroceryVC.swift in Sources */,
@@ -225,6 +232,7 @@
 				0E6868972796B494007F092A /* HomeTableViewController.swift in Sources */,
 				0E5879D3279DBDC4005E0981 /* PopupViewController.swift in Sources */,
 				0E5879CF279D51C3005E0981 /* CompleteChoreViewController.swift in Sources */,
+				0E5EAEA3279EEF16003777A4 /* LandingPageViewController.swift in Sources */,
 				0E6868952795E2D6007F092A /* HomeViewController.swift in Sources */,
 				C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */,
 				0E52ACDE278FC76D001F6D8F /* SceneDelegate.swift in Sources */,
@@ -383,7 +391,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZT55VRV55;
+				DEVELOPMENT_TEAM = PRRBNJ47ZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Vesta/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow To Open Camera?";

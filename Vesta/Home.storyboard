@@ -64,7 +64,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bef-bx-GVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4694" y="2194"/>
+            <point key="canvasLocation" x="5602.898550724638" y="2193.75"/>
         </scene>
         <!--Complete Chore View Controller-->
         <scene sceneID="fUi-tf-Scg">
@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCd-r8-avq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4693" y="2961"/>
+            <point key="canvasLocation" x="5602.898550724638" y="2960.4910714285711"/>
         </scene>
         <!--Create Chore View Holder-->
         <scene sceneID="wXQ-vh-LPN">
@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9X-FW-W1H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5742.0289855072469" y="2193.75"/>
+            <point key="canvasLocation" x="6652.1739130434789" y="2193.75"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MMM-XR-zHO">
@@ -205,6 +205,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="Rf5-GY-uJR" kind="relationship" relationship="viewControllers" id="DVz-Me-c5E"/>
                         <segue destination="hEG-Nd-mg9" kind="relationship" relationship="viewControllers" id="KQc-Fu-3bM"/>
                         <segue destination="bFu-1L-6F0" kind="relationship" relationship="viewControllers" id="VJ4-C9-188"/>
                     </connections>
@@ -281,11 +282,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="lXH-Yh-ObV" kind="popoverPresentation" identifier="popup" popoverAnchorView="M07-4r-U5y" id="XNO-aT-eGV">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JQ-fV-x9y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -389,6 +385,44 @@
             </objects>
             <point key="canvasLocation" x="6517.3913043478269" y="1425.6696428571429"/>
         </scene>
+        <!--Landing Page View Controller-->
+        <scene sceneID="cE7-13-ges">
+            <objects>
+                <viewController id="U0D-Vv-BEN" customClass="LandingPageViewController" customModule="Vesta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P5k-pn-aPu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5bf-YI-eTg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4SO-rM-px7"/>
+                    <connections>
+                        <outlet property="view" destination="P5k-pn-aPu" id="S4N-gp-g2g"/>
+                        <segue destination="lXH-Yh-ObV" kind="popoverPresentation" identifier="noti" popoverAnchorView="P5k-pn-aPu" id="OjW-M5-ZLz">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ETs-5G-dx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4239" y="523"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Flt-i9-iB2">
+            <objects>
+                <viewController id="D0P-ba-PXA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a0B-Tp-XP7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Han-wr-GtN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0a2-kX-rEp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cBt-dB-KkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5135" y="523"/>
+        </scene>
         <!--Item 2-->
         <scene sceneID="2K7-IQ-mIj">
             <objects>
@@ -406,7 +440,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLu-Gj-Cs9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3338" y="2195"/>
+            <point key="canvasLocation" x="3283" y="2185"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="idN-Ea-A0n">
@@ -420,8 +454,8 @@
                                 <rect key="frame" x="35" y="57" width="344" height="585"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My parents fucking hate me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="424-jK-s6L">
-                                        <rect key="frame" x="66" y="381" width="212" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="424-jK-s6L">
+                                        <rect key="frame" x="18" y="356" width="307" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -431,11 +465,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="344" height="338"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remarks" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSY-GH-DNq">
+                                        <rect key="frame" x="18" y="385" width="307" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji0-xd-IID">
-                                        <rect key="frame" x="139" y="432" width="67" height="31"/>
+                                        <rect key="frame" x="103" y="510" width="136" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Okay"/>
+                                        <connections>
+                                            <action selector="okay:" destination="lXH-Yh-ObV" eventType="touchUpInside" id="Rn5-Ch-zfj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
@@ -446,12 +490,33 @@
                     </view>
                     <navigationItem key="navigationItem" id="J0m-uI-hd9"/>
                     <connections>
+                        <outlet property="name" destination="424-jK-s6L" id="5hG-Rk-uMt"/>
                         <outlet property="proof" destination="vfl-9T-Gnn" id="6qF-hJ-AXb"/>
+                        <outlet property="remarks" destination="oSY-GH-DNq" id="CV2-7m-AiP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EHz-7t-Rj4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4424.6376811594209" y="729.24107142857144"/>
+            <point key="canvasLocation" x="4237.68115942029" y="-443.30357142857139"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="GIy-gc-bK3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rf5-GY-uJR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="PZC-X3-ImV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F4o-Pq-jlA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="U0D-Vv-BEN" kind="relationship" relationship="rootViewController" id="RHW-tc-Y96"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C6V-aQ-2CN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3283" y="523"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -459,6 +524,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart.square" catalog="system" width="128" height="114"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

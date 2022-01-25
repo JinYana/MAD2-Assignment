@@ -38,7 +38,11 @@ class HomeTableViewController: UITableViewController {
 
                     let dataChange = snapshot.childSnapshot(forPath: (child as AnyObject).key).value as? [String:AnyObject]
                     
-                    self.role = snapshot.childSnapshot(forPath: (child as AnyObject).key).childSnapshot(forPath: "userList").childSnapshot(forPath: self.appDelegate.selectedNum).value as! String
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -73,15 +77,7 @@ class HomeTableViewController: UITableViewController {
         
         
         
-        //setting up selected user in app delegate
-        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
-        ref.child("Users").observe(DataEventType.value, with:{ snapshot in
-            
-            let username = snapshot.childSnapshot(forPath: self.appDelegate.selectedNum).childSnapshot(forPath: "name").value
-            
-            self.appDelegate.selectedUser = User(name: username as! String, mobilenumber: self.appDelegate.selectedNum, role: self.role)
-        })
         
         
         

@@ -44,11 +44,15 @@ class CreateChoreViewHolder: UIViewController{
             for i in userarray{
                 let dataChange = snapshot.childSnapshot(forPath: "Users").childSnapshot(forPath: i).value as? [String:AnyObject]
                 let role = snapshot.childSnapshot(forPath: "Houses").childSnapshot(forPath: self.appDelegate.selectedHouse!.id).childSnapshot(forPath: "userList").childSnapshot(forPath: i).value as! String
-                                                  let user = User(name: dataChange!["name"] as! String, mobilenumber: i, role: role)
+                let user = User(name: dataChange!["name"] as! String, mobilenumber: i, role: role)
+                
+                
                 self.users.append(user)
                 
                 
+                
             }
+            
 
             self.ref.removeAllObservers()
         })
@@ -79,7 +83,8 @@ class CreateChoreViewHolder: UIViewController{
         let post = ["name": chorename.text!,
                     "remarks": choreremarks.text!,
                     "user": selecteduser,
-                    "id": key] as [String : Any]
+                    "id": key,
+                    "houseid": appDelegate.selectedHouse?.id] as [String : Any]
         ref.child("Chores").child(key).updateChildValues(post)
         let post2 = [key: true]
         ref.child("Houses").child(appDelegate.selectedHouse!.id).child("choreList").updateChildValues(post2)

@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var verId: String? = " "
     var productName:String?
     var productCat:String?
+    var productImg:String?
 
 
 

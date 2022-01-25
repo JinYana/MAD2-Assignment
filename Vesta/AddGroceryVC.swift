@@ -14,9 +14,15 @@ import AVFoundation
 class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    //create cam session
+    let session = AVCaptureSession()
     
     override func viewDidLoad() {
         //code
+        appDelegate.productName = nil
+        appDelegate.productCat = nil
+        appDelegate.productImg = nil
+        
        
     }
     
@@ -24,6 +30,7 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
     var video =  AVCaptureVideoPreviewLayer()
     @IBAction func addGroceryButton(_ sender: Any) {
      
+    
     captureSess()
     
         
@@ -34,31 +41,25 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
         
         
         if metadataObjects != nil && metadataObjects != nil{
-            if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject{
+            if let object = metadataObjects[0] as? AVMetadataMachineReadableCodeObject{
                 //print(appDelegate.productName)
                 
                 
                 
                 
                 if (object.type == AVMetadataObject.ObjectType.ean13 || object.type == AVMetadataObject.ObjectType.upce){
-                    getNonfoodreq(upc: object.stringValue!)
-                    print(appDelegate.productName)
+
+                    getNonfoodreq(upc:object.stringValue!)
+                    if(appDelegate.productName != nil){
+                        performSegue(withIdentifier: "confirmAddGroc", sender: nil)
+                        
+                        
+                        connection.isEnabled = false
+                        
+                    }
                     
                     
                     
-                    
-                       
-//
-//                    let detectedAlert = UIAlertController(title: "Is this the item you want to add?", message:getNonfoodreq(upc: object.stringValue!), preferredStyle: .alert)
-//
-//
-//
-//                    detectedAlert.addAction(UIAlertAction(title: "Add", style:.default, handler: nil))
-//                    detectedAlert.addAction(UIAlertAction(title: "Retake", style: .default, handler:{(alert:UIAlertAction!) in AddGroceryVC().loadView()}))
-//
-//
-//                    present(detectedAlert,animated: true,completion: nil)
-                   
                     
                     
                 }
@@ -67,11 +68,6 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
                 
             }
             
-            if(appDelegate.productName != nil){
-                performSegue(withIdentifier: "confirmAddGroc", sender: nil)
-                connection.isEnabled = false
-                
-            }
             
             
         }
@@ -80,8 +76,7 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
     
     func captureSess(){
         
-        //create session
-        let session = AVCaptureSession()
+       
         
         //Device for capture
         let captureDev = AVCaptureDevice.default(for: .video)
@@ -90,7 +85,6 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
             
             let deviceInput =  try! AVCaptureDeviceInput(device: captureDev!)
             session.addInput(deviceInput)
-            
             
             
         }
@@ -140,11 +134,18 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
                                 let decoder = JSONDecoder()
                                 do{
                                     let response =  try decoder.decode(nonFoodResponse.self,from:data!)
-                                    print(response.product.attributes.long_desc)
-                                    self.appDelegate.productName = response.product.attributes.long_desc
+                                    
+                                    self.appDelegate.productName = response.product.attributes.product
                                     self.appDelegate.productCat = response.product.attributes.category_text
-                                    dispName = response.product.attributes.long_desc
-                                    print(response.product.image)
+                                    dispName = response.product.attributes.product
+                                    
+                                    self.appDelegate.productImg = response.product.image
+                                    if response.product.hasImage == "No"{
+                                        
+                                        self.appDelegate.productImg = nil
+                                        
+                                    }
+                                    
                                 }
                                 catch{
                                     print(error)
@@ -166,6 +167,8 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
         
 }
 
+
+// Structs to decode json for non food products
 struct nonFoodResponse:Codable{
     //let status:statusobj
     let product:productobj
@@ -176,33 +179,20 @@ struct nonFoodResponse:Codable{
     
 }
 
-//struct statusobj:Codable{
-//    let version:String
-//    let code:String
-//    let message:String
-//    let find:String
-//    let time:Float
-//    let pause_until:Float
-//    //let search:String
-//    //let run:String
-//    //let runtime:String
-//
-//
-//}
+
 struct productobj:Codable{
     let attributes:attr
     let image:String
+    let hasImage:String
     
-// let locked:String
-//    let modified:String
-//    let hasImage:String
+
     
 }
 
 
 struct attr:Codable{
     
-    let long_desc:String
+    let product:String
     let category_text:String
     
 }

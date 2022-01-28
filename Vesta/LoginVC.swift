@@ -17,9 +17,6 @@ class LoginVC: UIViewController {
     var houseList:[House] = []
     var phoneNo  = ""
     
-
-
-    
     var ref:DatabaseReference!
     
     

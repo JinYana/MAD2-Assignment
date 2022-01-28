@@ -16,10 +16,10 @@ class HomeTableViewController: UITableViewController {
     var ref:DatabaseReference!
     var choreList:[Chores] = []
     var role: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
         
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
@@ -98,9 +98,9 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "houseCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "houseCell", for: indexPath) as! HomeTableViewCell
         
-        cell.textLabel!.text = houseList[indexPath.row].name
+        cell.label.text = houseList[indexPath.row].name
         
             
             

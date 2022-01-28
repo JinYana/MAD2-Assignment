@@ -33,6 +33,7 @@
 		0E805AFE279C463400F6AB18 /* ViewChoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E805AFD279C463400F6AB18 /* ViewChoreTableViewController.swift */; };
 		0E8D0F6E27985661005B0CB3 /* NewUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8D0F6D27985661005B0CB3 /* NewUser.storyboard */; };
 		0E8D0F70279859D9005B0CB3 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */; };
+		0E8F968127A37CCC0085CAAC /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F968027A37CCC0085CAAC /* HomeTableViewCell.swift */; };
 		C55484CD279837AB00FEE6D3 /* GroceriesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */; };
 		C55484CF279837E400FEE6D3 /* AddGroceryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */; };
 		C56924FF279DDE50003C6F47 /* ConfirmAddGroceryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */; };
@@ -65,6 +66,7 @@
 		0E805AFD279C463400F6AB18 /* ViewChoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChoreTableViewController.swift; sourceTree = "<group>"; };
 		0E8D0F6D27985661005B0CB3 /* NewUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewUser.storyboard; sourceTree = "<group>"; };
 		0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		0E8F968027A37CCC0085CAAC /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesTVC.swift; sourceTree = "<group>"; };
 		C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryVC.swift; sourceTree = "<group>"; };
 		C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAddGroceryVc.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */,
 				0E5EAEA2279EEF16003777A4 /* LandingPageViewController.swift */,
 				0E5EAEA4279F3648003777A4 /* IAPDelegate.swift */,
+				0E8F968027A37CCC0085CAAC /* HomeTableViewCell.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				C55484CD279837AB00FEE6D3 /* GroceriesTVC.swift in Sources */,
 				0E6868972796B494007F092A /* HomeTableViewController.swift in Sources */,
 				0E5879D3279DBDC4005E0981 /* PopupViewController.swift in Sources */,
+				0E8F968127A37CCC0085CAAC /* HomeTableViewCell.swift in Sources */,
 				0E5879CF279D51C3005E0981 /* CompleteChoreViewController.swift in Sources */,
 				0E5EAEA3279EEF16003777A4 /* LandingPageViewController.swift in Sources */,
 				0E6868952795E2D6007F092A /* HomeViewController.swift in Sources */,

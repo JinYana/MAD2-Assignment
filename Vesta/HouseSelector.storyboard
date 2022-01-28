@@ -139,6 +139,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3RB-uh-xWe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.92549019610000005" green="0.43529411759999997" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -149,22 +150,76 @@
             </objects>
             <point key="canvasLocation" x="692.75362318840587" y="182.8125"/>
         </scene>
-        <!--Your Houses-->
+        <!--Home Table View Controller-->
         <scene sceneID="gTL-Uu-wRd">
             <objects>
                 <tableViewController id="CRE-QW-Dxb" customClass="HomeTableViewController" customModule="Vesta" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="0B7-HN-GMT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="0B7-HN-GMT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="separatorColor" systemColor="opaqueSeparatorColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="OVh-EJ-YiW">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home Page Top Bar" translatesAutoresizingMaskIntoConstraints="NO" id="SB2-gH-4Ek">
+                                    <rect key="frame" x="-293" y="-98" width="1000" height="218"/>
+                                </imageView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tab bar white short" translatesAutoresizingMaskIntoConstraints="NO" id="Gul-C3-5R0">
+                                    <rect key="frame" x="0.0" y="8" width="414" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Houses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0C9-Do-32t">
+                                    <rect key="frame" x="37" y="84" width="181" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                    <color key="textColor" red="0.92549019610000005" green="0.43529411759999997" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="SB2-gH-4Ek" secondAttribute="bottom" constant="46" id="N0L-iA-IHp"/>
+                                <constraint firstItem="SB2-gH-4Ek" firstAttribute="centerX" secondItem="OVh-EJ-YiW" secondAttribute="centerX" id="WNe-4G-AQL"/>
+                                <constraint firstItem="SB2-gH-4Ek" firstAttribute="top" secondItem="OVh-EJ-YiW" secondAttribute="top" constant="-98" id="clB-Jt-g5u"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="houseCell" id="fJX-5h-Ry4">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="houseCell" rowHeight="73" id="fJX-5h-Ry4" customClass="HomeTableViewCell" customModule="Vesta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="210.5" width="414" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fJX-5h-Ry4" id="sU3-XY-Evm">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="0pH-zh-djM">
+                                            <rect key="frame" x="30" y="32" width="30" height="25"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="KFN-mS-coV"/>
+                                            </constraints>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-WF-xDP" userLabel="homeName">
+                                            <rect key="frame" x="70" y="38" width="39.5" height="19"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" red="0.92549019610000005" green="0.43529411759999997" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0pH-zh-djM" secondAttribute="bottom" constant="5" id="0QN-en-MCZ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="DtF-WF-xDP" secondAttribute="bottom" constant="5" id="I8A-CA-nVz"/>
+                                        <constraint firstItem="0pH-zh-djM" firstAttribute="leading" secondItem="sU3-XY-Evm" secondAttribute="leadingMargin" constant="10" id="QXG-ei-6rb"/>
+                                        <constraint firstItem="DtF-WF-xDP" firstAttribute="leading" secondItem="0pH-zh-djM" secondAttribute="trailing" constant="10" id="xVP-Hr-a6b"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="iconImageView" destination="0pH-zh-djM" id="onu-B2-2MD"/>
+                                    <outlet property="label" destination="DtF-WF-xDP" id="LO2-cO-z6k"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -172,15 +227,15 @@
                             <outlet property="delegate" destination="CRE-QW-Dxb" id="IMT-Z4-0Zo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Houses" id="F9e-pa-BXU">
+                    <navigationItem key="navigationItem" id="F9e-pa-BXU">
                         <barButtonItem key="leftBarButtonItem" title="Join Home" id="gG9-Sz-zdH">
-                            <color key="tintColor" red="0.92549019607843142" green="0.43529411764705883" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="hgr-Z8-LOQ" kind="show" id="LTt-WM-aCt"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Create Home" id="BGS-fo-BDz">
-                            <color key="tintColor" red="0.92549019610000005" green="0.43529411759999997" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="6B9-Zn-CAP" kind="show" id="pGv-f5-hM1"/>
                             </connections>
@@ -189,14 +244,20 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r30-dK-oBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1509" y="183"/>
+            <point key="canvasLocation" x="1508.6956521739132" y="182.8125"/>
         </scene>
     </scenes>
     <resources>
         <image name="Button Rounded 2" width="1407" height="260"/>
         <image name="Create House V2" width="500" height="500"/>
+        <image name="Home" width="25" height="25"/>
+        <image name="Home Page Top Bar" width="1000" height="500"/>
         <image name="Join House V2" width="500" height="500"/>
         <image name="Text Field" width="816" height="224"/>
+        <image name="tab bar white short" width="800" height="200"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

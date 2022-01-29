@@ -21,15 +21,15 @@ class ProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        role.text = appDelegate.selectedUser?.role
+        role.text = "Role: \(appDelegate.selectedUser?.role as! String)"
         
-        phoneno.text = appDelegate.selectedUser?.mobilenumber
+        phoneno.text = "Mobile No: \(appDelegate.selectedUser?.mobilenumber as! String)"
         
-        name.text = appDelegate.selectedUser?.name
+        name.text = "Name: \(appDelegate.selectedUser?.name as! String)"
         
-        currenthouse.text = appDelegate.selectedHouse?.name
+        currenthouse.text = "House Name:\(appDelegate.selectedHouse?.name as! String)"
         
-        housecode.text = appDelegate.selectedHouse?.id
+        housecode.text = "House ID: \(appDelegate.selectedHouse?.id as! String)"
         
     }
     @IBAction func logout(_ sender: Any) {

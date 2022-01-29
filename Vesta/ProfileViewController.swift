@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController{
     
+    @IBOutlet weak var housecode: UILabel!
+    @IBOutlet weak var currenthouse: UILabel!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var role: UILabel!
     @IBOutlet weak var phoneno: UILabel!
@@ -20,8 +22,14 @@ class ProfileViewController: UIViewController{
         super.viewDidLoad()
         
         role.text = appDelegate.selectedUser?.role
+        
         phoneno.text = appDelegate.selectedUser?.mobilenumber
+        
         name.text = appDelegate.selectedUser?.name
+        
+        currenthouse.text = appDelegate.selectedHouse?.name
+        
+        housecode.text = appDelegate.selectedHouse?.id
         
     }
     @IBAction func logout(_ sender: Any) {

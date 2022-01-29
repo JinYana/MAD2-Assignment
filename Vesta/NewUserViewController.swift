@@ -24,6 +24,11 @@ class NewUserController: UIViewController{
                         "mobilenumber": appDelegate.selectedNum]
             let childUpdates = ["/Users/\(appDelegate.selectedNum as! String)": post]
             ref.updateChildValues(childUpdates)
+            
+            let storyboard = UIStoryboard(name: "HouseSelector", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "HouseSelector") as UIViewController
+                vc.modalPresentationStyle = .fullScreen
+            self.present(vc,animated: true,completion: nil)
         }
     }
     

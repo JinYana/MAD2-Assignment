@@ -9,10 +9,13 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseCore
+import FirebaseDatabase
 var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 class ViewController: UIViewController {
     var verification_id : String? = nil
+    
+    var ref:DatabaseReference!
     
 
     @IBOutlet weak var phoneNo: UITextField!
@@ -20,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var enterOTP: UITextField!
     
     @IBAction func getOtp(_ sender: Any) {
+        
         // get verification code from phone no
         Auth.auth().settings?.isAppVerificationDisabledForTesting = false
         PhoneAuthProvider.provider().verifyPhoneNumber("+65\(phoneNo.text!)", uiDelegate: nil, completion: {verificationId,error in
@@ -45,8 +49,6 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //
         
         if Auth.auth().currentUser != nil{
             print("Authentication Succeed")
@@ -58,7 +60,7 @@ class ViewController: UIViewController {
             appDelegate.selectedNum = String((Auth.auth().currentUser?.phoneNumber?.dropFirst(3))!) as String
         }
         
-        var ref:DatabaseReference!
+        
         
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
@@ -83,6 +85,8 @@ class ViewController: UIViewController {
             }
         destination.phoneNo = phoneNo.text!
         }
+    
+    
 
 
 }

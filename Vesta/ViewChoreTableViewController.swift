@@ -13,18 +13,24 @@ class ViewChoreTableViewController:UITableViewController{
     var ref:DatabaseReference!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var choreList:[Chores] = []
+    @IBOutlet weak var addchore: UIBarButtonItem!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if appDelegate.selectedUser?.role != "owner"{
+            self.navigationItem.rightBarButtonItem = nil
+        }
+        
+        
+        
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-        //getting the users assigned chores from the database
+            //getting the users assigned chores from the database
         ref.child("Chores").observe(DataEventType.value, with:{ [self] snapshot in
-            
+                
             choreList.removeAll()
-            
-            
+                
             for i in snapshot.children{
                 
                 let databasechores = snapshot.childSnapshot(forPath: (i as AnyObject).key)
@@ -45,11 +51,6 @@ class ViewChoreTableViewController:UITableViewController{
             
             self.tableView.reloadData()
         })
-        
-        
-        
-        
-        
         
         
     }

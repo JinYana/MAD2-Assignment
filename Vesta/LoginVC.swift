@@ -15,8 +15,8 @@ import Firebase
 
 class LoginVC: UIViewController {
     var houseList:[House] = []
-    var phoneNo  = ""
     
+    var phoneNo = ""
     var ref:DatabaseReference!
     
     
@@ -24,75 +24,10 @@ class LoginVC: UIViewController {
     
         
     @IBOutlet weak var warning: UILabel!
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
        
-    @IBAction func testButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "Home") as UIViewController
-            vc.modalPresentationStyle = .fullScreen
-        self.present(vc,animated: true,completion: nil)
-        
-        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-        
-        ref.child("Houses").observe(DataEventType.value, with:{ snapshot in
-            
-            
-            
-            
-            for child in snapshot.children {
-                //Iterating through all the houses in the database
-                let childSnapshot = snapshot.childSnapshot(forPath: (child as AnyObject).key).childSnapshot(forPath: "userList")
-                if childSnapshot.childSnapshot(forPath: "12345678").exists() {
-
-
-                    let dataChange = snapshot.childSnapshot(forPath: (child as AnyObject).key).value as? [String:AnyObject]
-                    
-                    print(dataChange)
-                    
-                    
-
-
-
-                    let userarray = dataChange!["userList"]?.allKeys as! [String]
-                    var chorearray: [String] = []
-                    if (dataChange!["chores"]?.allKeys) != nil{
-                        chorearray = dataChange!["chores"]?.allKeys as! [String]
-                    }
-                    
-                        
-                    
-                    
-                    
-                    let house:House = House(name: dataChange!["name"] as! String, id: dataChange!["id"] as! String, choreList: chorearray, userList: userarray)
-                    
-                    
-                    
-                    self.houseList.append(house)
-                    
-                    
-                    
-                    
-                    
-
-                    
-                }
-            }
-            print(self.houseList)
-            
-            if let encoded = try? JSONEncoder().encode(self.houseList) {
-                UserDefaults.standard.set(encoded, forKey: "items")
-            }
-            
-            
-            
-            
-            
-
-
-
-         })
-        
-    }
+    
     
     @IBAction func logIn(_ sender: Any) {
         if appDelegate.verId != nil{
@@ -106,10 +41,24 @@ class LoginVC: UIViewController {
                 }else{
                     self.warning.isHidden = true
                     print("Authentication Succeed")
-                    let storyboard = UIStoryboard(name: "HouseSelector", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "HouseSelector") as UIViewController
-                        vc.modalPresentationStyle = .fullScreen
-                    self.present(vc,animated: true,completion: nil)
+                    ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+                    ref.child("Users").observe(DataEventType.value, with:{ snapshot in
+                        if !snapshot.childSnapshot(forPath: appDelegate.selectedNum).exists(){
+                            let storyboard = UIStoryboard(name: "NewUser", bundle: nil)
+                            let vc = storyboard.instantiateViewController(withIdentifier: "NewUser") as UIViewController
+                                vc.modalPresentationStyle = .fullScreen
+                            self.present(vc,animated: true,completion: nil)
+                                               
+                        }
+                        else{
+                            let storyboard = UIStoryboard(name: "HouseSelector", bundle: nil)
+                            let vc = storyboard.instantiateViewController(withIdentifier: "HouseSelector") as UIViewController
+                                vc.modalPresentationStyle = .fullScreen
+                            self.present(vc,animated: true,completion: nil)
+                        }
+                        
+                    })
+                    
                     
                     
                     

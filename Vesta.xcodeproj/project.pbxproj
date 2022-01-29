@@ -16,8 +16,10 @@
 		0E52ACEB278FC76F001F6D8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E52ACE9278FC76F001F6D8F /* LaunchScreen.storyboard */; };
 		0E5879CF279D51C3005E0981 /* CompleteChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5879CE279D51C3005E0981 /* CompleteChoreViewController.swift */; };
 		0E5879D3279DBDC4005E0981 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5879D2279DBDC4005E0981 /* PopupViewController.swift */; };
+		0E5CE95227A5511400E791DC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5CE95127A5511400E791DC /* ProfileViewController.swift */; };
+		0E5CE95427A5A3D700E791DC /* GroceryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5CE95327A5A3D700E791DC /* GroceryDetailsViewController.swift */; };
 		0E5EAEA3279EEF16003777A4 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EAEA2279EEF16003777A4 /* LandingPageViewController.swift */; };
-		0E5EAEA5279F3648003777A4 /* IAPDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EAEA4279F3648003777A4 /* IAPDelegate.swift */; };
+		0E5EAEA5279F3648003777A4 /* NotiDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5EAEA4279F3648003777A4 /* NotiDelegate.swift */; };
 		0E68687E2795658D007F092A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E68687D2795658D007F092A /* GoogleService-Info.plist */; };
 		0E686881279566B1007F092A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686880279566B1007F092A /* FirebaseAnalytics */; };
 		0E686883279566B1007F092A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E686882279566B1007F092A /* FirebaseAuth */; };
@@ -29,15 +31,15 @@
 		0E6868932795E29A007F092A /* HouseSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6868922795E29A007F092A /* HouseSelector.storyboard */; };
 		0E6868952795E2D6007F092A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868942795E2D6007F092A /* HomeViewController.swift */; };
 		0E6868972796B494007F092A /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6868962796B494007F092A /* HomeTableViewController.swift */; };
-		0E68D225279B0BC800A7667B /* CreateChoreViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68D224279B0BC800A7667B /* CreateChoreViewHolder.swift */; };
+		0E68D225279B0BC800A7667B /* CreateChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68D224279B0BC800A7667B /* CreateChoreViewController.swift */; };
 		0E805AFE279C463400F6AB18 /* ViewChoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E805AFD279C463400F6AB18 /* ViewChoreTableViewController.swift */; };
 		0E8D0F6E27985661005B0CB3 /* NewUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8D0F6D27985661005B0CB3 /* NewUser.storyboard */; };
 		0E8D0F70279859D9005B0CB3 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */; };
 		0E8F968127A37CCC0085CAAC /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F968027A37CCC0085CAAC /* HomeTableViewCell.swift */; };
-		C55484CD279837AB00FEE6D3 /* GroceriesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */; };
-		C55484CF279837E400FEE6D3 /* AddGroceryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */; };
+		C55484CD279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CC279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift */; };
+		C55484CF279837E400FEE6D3 /* AddGroceryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CE279837E400FEE6D3 /* AddGroceryViewController.swift */; };
 		C56924FF279DDE50003C6F47 /* ConfirmAddGroceryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */; };
-		C591953F279DB95C00F13658 /* Groceries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591953E279DB95C00F13658 /* Groceries.swift */; };
+		C591953F279DB95C00F13658 /* Grocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591953E279DB95C00F13658 /* Grocery.swift */; };
 		C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AC5CFA2796AEAE000502DE /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,8 +55,10 @@
 		0E52ACEC278FC76F001F6D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E5879CE279D51C3005E0981 /* CompleteChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteChoreViewController.swift; sourceTree = "<group>"; };
 		0E5879D2279DBDC4005E0981 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		0E5CE95127A5511400E791DC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0E5CE95327A5A3D700E791DC /* GroceryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryDetailsViewController.swift; sourceTree = "<group>"; };
 		0E5EAEA2279EEF16003777A4 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
-		0E5EAEA4279F3648003777A4 /* IAPDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPDelegate.swift; sourceTree = "<group>"; };
+		0E5EAEA4279F3648003777A4 /* NotiDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiDelegate.swift; sourceTree = "<group>"; };
 		0E68687D2795658D007F092A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0E68688A27959EA1007F092A /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		0E68688E2795B352007F092A /* Chores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chores.swift; sourceTree = "<group>"; };
@@ -62,15 +66,15 @@
 		0E6868922795E29A007F092A /* HouseSelector.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HouseSelector.storyboard; sourceTree = "<group>"; };
 		0E6868942795E2D6007F092A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0E6868962796B494007F092A /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
-		0E68D224279B0BC800A7667B /* CreateChoreViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChoreViewHolder.swift; sourceTree = "<group>"; };
+		0E68D224279B0BC800A7667B /* CreateChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChoreViewController.swift; sourceTree = "<group>"; };
 		0E805AFD279C463400F6AB18 /* ViewChoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChoreTableViewController.swift; sourceTree = "<group>"; };
 		0E8D0F6D27985661005B0CB3 /* NewUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewUser.storyboard; sourceTree = "<group>"; };
 		0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		0E8F968027A37CCC0085CAAC /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesTVC.swift; sourceTree = "<group>"; };
-		C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryVC.swift; sourceTree = "<group>"; };
+		C55484CC279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGroceriesTableViewController.swift; sourceTree = "<group>"; };
+		C55484CE279837E400FEE6D3 /* AddGroceryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryViewController.swift; sourceTree = "<group>"; };
 		C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAddGroceryVc.swift; sourceTree = "<group>"; };
-		C591953E279DB95C00F13658 /* Groceries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groceries.swift; sourceTree = "<group>"; };
+		C591953E279DB95C00F13658 /* Grocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grocery.swift; sourceTree = "<group>"; };
 		C5AC5CFA2796AEAE000502DE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,18 +129,20 @@
 				0E6868942795E2D6007F092A /* HomeViewController.swift */,
 				C5AC5CFA2796AEAE000502DE /* LoginVC.swift */,
 				0E6868962796B494007F092A /* HomeTableViewController.swift */,
-				C55484CC279837AB00FEE6D3 /* GroceriesTVC.swift */,
-				C55484CE279837E400FEE6D3 /* AddGroceryVC.swift */,
+				C55484CC279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift */,
+				C55484CE279837E400FEE6D3 /* AddGroceryViewController.swift */,
 				0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */,
-				0E68D224279B0BC800A7667B /* CreateChoreViewHolder.swift */,
+				0E68D224279B0BC800A7667B /* CreateChoreViewController.swift */,
 				0E805AFD279C463400F6AB18 /* ViewChoreTableViewController.swift */,
 				0E5879CE279D51C3005E0981 /* CompleteChoreViewController.swift */,
 				0E5879D2279DBDC4005E0981 /* PopupViewController.swift */,
-				C591953E279DB95C00F13658 /* Groceries.swift */,
+				C591953E279DB95C00F13658 /* Grocery.swift */,
 				C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */,
 				0E5EAEA2279EEF16003777A4 /* LandingPageViewController.swift */,
-				0E5EAEA4279F3648003777A4 /* IAPDelegate.swift */,
+				0E5EAEA4279F3648003777A4 /* NotiDelegate.swift */,
 				0E8F968027A37CCC0085CAAC /* HomeTableViewCell.swift */,
+				0E5CE95127A5511400E791DC /* ProfileViewController.swift */,
+				0E5CE95327A5A3D700E791DC /* GroceryDetailsViewController.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -226,12 +232,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E52ACE0278FC76D001F6D8F /* ViewController.swift in Sources */,
-				0E5EAEA5279F3648003777A4 /* IAPDelegate.swift in Sources */,
+				0E5EAEA5279F3648003777A4 /* NotiDelegate.swift in Sources */,
 				0E52ACDC278FC76D001F6D8F /* AppDelegate.swift in Sources */,
-				0E68D225279B0BC800A7667B /* CreateChoreViewHolder.swift in Sources */,
-				C55484CF279837E400FEE6D3 /* AddGroceryVC.swift in Sources */,
+				0E68D225279B0BC800A7667B /* CreateChoreViewController.swift in Sources */,
+				C55484CF279837E400FEE6D3 /* AddGroceryViewController.swift in Sources */,
 				0E68688B27959EA1007F092A /* House.swift in Sources */,
-				C55484CD279837AB00FEE6D3 /* GroceriesTVC.swift in Sources */,
+				0E5CE95227A5511400E791DC /* ProfileViewController.swift in Sources */,
+				C55484CD279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift in Sources */,
 				0E6868972796B494007F092A /* HomeTableViewController.swift in Sources */,
 				0E5879D3279DBDC4005E0981 /* PopupViewController.swift in Sources */,
 				0E8F968127A37CCC0085CAAC /* HomeTableViewCell.swift in Sources */,
@@ -240,9 +247,10 @@
 				0E6868952795E2D6007F092A /* HomeViewController.swift in Sources */,
 				C5AC5CFB2796AEAE000502DE /* LoginVC.swift in Sources */,
 				0E52ACDE278FC76D001F6D8F /* SceneDelegate.swift in Sources */,
+				0E5CE95427A5A3D700E791DC /* GroceryDetailsViewController.swift in Sources */,
 				0E805AFE279C463400F6AB18 /* ViewChoreTableViewController.swift in Sources */,
 				0E68688F2795B352007F092A /* Chores.swift in Sources */,
-				C591953F279DB95C00F13658 /* Groceries.swift in Sources */,
+				C591953F279DB95C00F13658 /* Grocery.swift in Sources */,
 				0E8D0F70279859D9005B0CB3 /* NewUserViewController.swift in Sources */,
 				0E6868912795BA5B007F092A /* User.swift in Sources */,
 				C56924FF279DDE50003C6F47 /* ConfirmAddGroceryVc.swift in Sources */,
@@ -405,6 +413,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -436,6 +445,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

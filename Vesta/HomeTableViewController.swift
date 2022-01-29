@@ -27,9 +27,7 @@ class HomeTableViewController: UITableViewController {
             
             self.houseList.removeAll()
             
-            
-            
-            
+
             for child in snapshot.children {
                 //Iterating through all the houses in the database
                 let childSnapshot = snapshot.childSnapshot(forPath: (child as AnyObject).key).childSnapshot(forPath: "userList")
@@ -38,14 +36,7 @@ class HomeTableViewController: UITableViewController {
 
                     let dataChange = snapshot.childSnapshot(forPath: (child as AnyObject).key).value as? [String:AnyObject]
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
                     let userarray = dataChange!["userList"]?.allKeys as! [String]
                     var chorearray: [String] = []
                     if (dataChange!["choreList"]?.allKeys) != nil{
@@ -59,12 +50,6 @@ class HomeTableViewController: UITableViewController {
                     
                     self.houseList.append(house)
                     
-                    
-                    
-                    
-                    
-                    
-                    
 
                     
                 }
@@ -74,16 +59,6 @@ class HomeTableViewController: UITableViewController {
 
 
          })
-        
-        
-        
-        
-        
-        
-        
-        
-
-        
         
         
         

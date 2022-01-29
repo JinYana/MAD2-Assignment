@@ -10,9 +10,10 @@ import UIKit
 import Firebase
 
 
-class CreateChoreViewHolder: UIViewController{
+class CreateChoreViewController: UIViewController{
     
     
+    @IBOutlet weak var errormsg: UILabel!
     @IBOutlet weak var choreuser: UITextField!
     @IBOutlet weak var choreremarks: UITextField!
     @IBOutlet weak var chorename: UITextField!
@@ -22,6 +23,7 @@ class CreateChoreViewHolder: UIViewController{
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
+        errormsg.isHidden = true
         
         
         pickerview.delegate = self
@@ -59,41 +61,43 @@ class CreateChoreViewHolder: UIViewController{
         
         
         
-        
-        
-        
-        
-
-        
-
-    
-        
-        
     }
     @IBAction func createchore(_ sender: Any) {
-        var selecteduser: String =  ""
-        for i in users{
-            if i.name == choreuser.text{
-                selecteduser = i.mobilenumber
-            }
+        if chorename.text == "" || choreuser.text == "" || choreremarks.text == ""{
+            errormsg.isHidden = false
         }
-        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-        //Adding the user to the exisiting house to the database
-        guard let key = ref.child("Chores").childByAutoId().key else { return }
-        let post = ["name": chorename.text!,
-                    "remarks": choreremarks.text!,
-                    "user": selecteduser,
-                    "id": key,
-                    "houseid": appDelegate.selectedHouse?.id] as [String : Any]
-        ref.child("Chores").child(key).updateChildValues(post)
-        let post2 = [key: true]
-        ref.child("Houses").child(appDelegate.selectedHouse!.id).child("choreList").updateChildValues(post2)
+        else{
+            var selecteduser: String =  ""
+            for i in users{
+                if i.name == choreuser.text{
+                    selecteduser = i.mobilenumber
+                }
+            }
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            //Adding the user to the exisiting house to the database
+            guard let key = ref.child("Chores").childByAutoId().key else { return }
+            let post = ["name": chorename.text!,
+                        "remarks": choreremarks.text!,
+                        "user": selecteduser,
+                        "id": key,
+                        "houseid": appDelegate.selectedHouse?.id] as [String : Any]
+            ref.child("Chores").child(key).updateChildValues(post)
+            let post2 = [key: true]
+            ref.child("Houses").child(appDelegate.selectedHouse!.id).child("choreList").updateChildValues(post2)
+            
+            appDelegate.selectedHouse?.choreList.append(key)
+            let alert = UIAlertController(title: "Create Chore", message: "Chore has been created and sent to \(choreuser.text as! String)", preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popToRootViewController(animated: true)
+                } )
+            
+        }
         
-        appDelegate.selectedHouse?.choreList.append(key)
     }
 }
 
-extension CreateChoreViewHolder: UIPickerViewDelegate, UIPickerViewDataSource{
+extension CreateChoreViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

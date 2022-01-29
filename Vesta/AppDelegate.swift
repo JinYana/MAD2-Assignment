@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var selectedUser:User?
     var selectedNum: String!
     var selectedChores: Chores?
+    var selectedGrocery: Grocery?
     var verId: String? = " "
     var productName:String?
     var productCat:String?

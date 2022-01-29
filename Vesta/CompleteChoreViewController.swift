@@ -12,12 +12,21 @@ import Firebase
 
 
 class CompleteChoreViewController : UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+    
+    @IBOutlet weak var chorename: UILabel!
+    @IBOutlet weak var remarks: UILabel!
+    
+    
     var ref:DatabaseReference!
     @IBOutlet weak var proof: UIImageView!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var complete: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chorename.text = "Chore Name: \(appDelegate.selectedChores?.name)"
+        
+        remarks.text = "Remarks: \(appDelegate.selectedChores?.remarks)"
         
         
     }
@@ -100,6 +109,7 @@ class CompleteChoreViewController : UIViewController, UIImagePickerControllerDel
     //
     //        task.resume()
     //        semaphore.wait()
+            dismiss(animated: true, completion: nil)
         }
         else{
             //else just remove chore from database
@@ -108,6 +118,7 @@ class CompleteChoreViewController : UIViewController, UIImagePickerControllerDel
             ref.child("Houses").child(appDelegate.selectedHouse!.id).child("choreList").child(appDelegate.selectedChores!.id).removeValue()
             
             ref.child("Chores").child(appDelegate.selectedChores!.id).removeValue()
+            dismiss(animated: true, completion: nil)
         }
         
         

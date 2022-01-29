@@ -96,6 +96,7 @@ class CreateChoreViewHolder: UIViewController{
             ref.child("Houses").child(appDelegate.selectedHouse!.id).child("choreList").updateChildValues(post2)
             
             appDelegate.selectedHouse?.choreList.append(key)
+            dismiss(animated: true, completion: nil)
         }
         
     }

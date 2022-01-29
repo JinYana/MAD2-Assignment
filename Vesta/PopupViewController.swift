@@ -68,13 +68,14 @@ class PopupViewController: UIViewController{
     }
     @IBAction func okay(_ sender: Any) {
         ref.child("Houses").child(appDelegate.selectedHouse!.id).child("Completed").child(self.key).removeValue()
+        dismiss(animated: true, completion: nil)
         
         notiDelegate?.popupokay()
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-         
+        ref.child("Houses").child(appDelegate.selectedHouse!.id).child("Completed").child(self.key).removeValue()
     
         notiDelegate?.popupokay()
     }

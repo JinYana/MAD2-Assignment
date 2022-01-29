@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="Yf9-e2-FV6">
             <objects>
-                <viewController id="nAl-3S-hn9" customClass="ViewController" customModule="Vesta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="nAl-3S-hn9" customClass="ViewController" customModule="Vesta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Adn-1g-som">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-class CreateChoreViewHolder: UIViewController{
+class CreateChoreViewController: UIViewController{
     
     
     @IBOutlet weak var errormsg: UILabel!
@@ -61,16 +61,6 @@ class CreateChoreViewHolder: UIViewController{
         
         
         
-        
-        
-        
-        
-
-        
-
-    
-        
-        
     }
     @IBAction func createchore(_ sender: Any) {
         if chorename.text == "" || choreuser.text == "" || choreremarks.text == ""{
@@ -96,13 +86,18 @@ class CreateChoreViewHolder: UIViewController{
             ref.child("Houses").child(appDelegate.selectedHouse!.id).child("choreList").updateChildValues(post2)
             
             appDelegate.selectedHouse?.choreList.append(key)
-            dismiss(animated: true, completion: nil)
+            let alert = UIAlertController(title: "Create Chore", message: "Chore has been created and sent to \(choreuser.text as! String)", preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popToRootViewController(animated: true)
+                } )
+            
         }
         
     }
 }
 
-extension CreateChoreViewHolder: UIPickerViewDelegate, UIPickerViewDataSource{
+extension CreateChoreViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

@@ -31,12 +31,6 @@ class ViewChoreTableViewController:UITableViewController{
                 
             choreList.removeAll()
                 
-                
-        
-            
-            
-            
-            
             for i in snapshot.children{
                 
                 let databasechores = snapshot.childSnapshot(forPath: (i as AnyObject).key)
@@ -57,11 +51,6 @@ class ViewChoreTableViewController:UITableViewController{
             
             self.tableView.reloadData()
         })
-        
-        
-        
-        
-        
         
         
     }

@@ -6,13 +6,17 @@
 //
 
 import Foundation
-
+import FirebaseDatabase
 import UIKit
 import AVFoundation
 
 
-class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
-    
+class AddGroceryViewController:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
+    @IBOutlet weak var groceryname: UITextField!
+    @IBOutlet weak var groceryquantity: UITextField!
+    @IBOutlet weak var errormsg: UILabel!
+    @IBOutlet weak var grocerydescription: UITextField!
+    var ref:DatabaseReference!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     //create cam session
     let session = AVCaptureSession()
@@ -22,8 +26,34 @@ class AddGroceryVC:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
         appDelegate.productName = nil
         appDelegate.productCat = nil
         appDelegate.productImg = nil
+        errormsg.isHidden = true
         
        
+    }
+    @IBAction func addmanualgrocery(_ sender: Any) {
+        if groceryname.text == "" || grocerydescription.text == "" || groceryquantity.text == ""{
+            errormsg.isHidden = false
+        }
+        else{
+        
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            //Adding the user to the exisiting house to the database
+            guard let key = ref.child("Groceries").childByAutoId().key else { return }
+            let post = ["name": groceryname.text!,
+                        "description": grocerydescription.text!,
+                        "quantity": groceryquantity.text,
+                        "id": key,
+                        "houseid": appDelegate.selectedHouse?.id] as [String : Any]
+            ref.child("Groceries").child(key).updateChildValues(post)
+            let post2 = [key: true]
+            ref.child("Houses").child(appDelegate.selectedHouse!.id).child("groceryList").updateChildValues(post2)
+            let alert = UIAlertController(title: "Add Grocery", message: "Grocery '\(groceryname.text as! String)' has been added to your grocery list", preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popToRootViewController(animated: true)
+                } )
+        
+            }
     }
     
     

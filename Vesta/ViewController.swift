@@ -13,6 +13,7 @@ import FirebaseDatabase
 var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 class ViewController: UIViewController {
+    
     var verification_id : String? = nil
     
     var ref:DatabaseReference!
@@ -49,6 +50,9 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
+                                                
         
         if Auth.auth().currentUser != nil{
             print("Authentication Succeed")

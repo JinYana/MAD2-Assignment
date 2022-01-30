@@ -21,14 +21,18 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
         let selectedgroc = appDelegate.selectedGrocery
         quantity.text = selectedgroc?.quantity
         groceryname.text = selectedgroc?.name
         grocerydesc.text = selectedgroc?.description
         
+        
         let storage = Storage.storage().reference()
         let starsRef = storage.child("groceries/\(appDelegate.selectedGrocery?.id as! String)")
         
+       
         // Fetch the download URL
         starsRef.downloadURL { url, error in
           if let error = error {
@@ -49,6 +53,7 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
           }
         
         }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -113,4 +118,6 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
 
         })
     }
+    
+
 }

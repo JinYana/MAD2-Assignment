@@ -80,6 +80,8 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
         warning.isHidden = true
         let domain = Bundle.main.bundleIdentifier!

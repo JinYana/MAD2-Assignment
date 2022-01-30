@@ -23,6 +23,9 @@ class ViewGroceriesTableViewController:UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        appDelegate.productName = nil
+        appDelegate.productCat = nil
+        appDelegate.productImg = nil
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
             //getting the users assigned chores from the database
         ref.child("Groceries").observe(DataEventType.value, with:{ [self] snapshot in

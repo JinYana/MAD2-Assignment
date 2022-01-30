@@ -21,6 +21,13 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Looks for single or multiple taps.
+         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        
+        tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
         let selectedgroc = appDelegate.selectedGrocery
         quantity.text = selectedgroc?.quantity
         groceryname.text = selectedgroc?.name
@@ -82,16 +89,14 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
         quantity.text = String(Int(quantity.text!)! + 1)
     }
     
-    // open camera to take picture
-    @IBAction func takegrocerypic(_ sender: Any) {
+    @IBAction func takepic(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
-        vc.allowsEditing = true
+        vc.allowsEditing = false
         vc.delegate = self
         present(vc, animated: true)
     }
     
-    // set image and save image to firebase
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
 
@@ -102,15 +107,26 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
 
         grocerypic.image = image
         
-        let storage = Storage.storage().reference()
         
         
-        storage.child("groceries/\(appDelegate.selectedGrocery?.id as! String)").putData(grocerypic.image!.pngData()! , metadata: nil, completion: { _, error in guard error == nil else{
-            print("Failed to upload")
-            return
-           }
+        
+        
 
-
-        })
+    }
+    
+    // open camera to take picture
+    @IBAction func takegrocerypic(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
+    }
+    
+    // set image and save image to firebase
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 }

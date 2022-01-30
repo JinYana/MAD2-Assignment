@@ -831,7 +831,7 @@ and take a picture of it!</string>
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="takegrocerypic:" destination="D0P-ba-PXA" eventType="touchUpInside" id="wLo-fa-YoM"/>
+                                    <action selector="takepic:" destination="D0P-ba-PXA" eventType="touchUpInside" id="k5U-Qq-78b"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lsq-55-p4r">

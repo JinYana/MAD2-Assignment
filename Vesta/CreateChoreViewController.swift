@@ -24,7 +24,13 @@ class CreateChoreViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         errormsg.isHidden = true
+        //Looks for single or multiple taps.
+         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
         
+        tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
         
         pickerview.delegate = self
         pickerview.dataSource = self
@@ -113,6 +119,11 @@ extension CreateChoreViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         choreuser.text = users[row].name
         choreuser.resignFirstResponder()
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
 }

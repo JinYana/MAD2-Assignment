@@ -23,6 +23,13 @@ class AddGroceryViewController:UIViewController,AVCaptureMetadataOutputObjectsDe
     
     override func viewDidLoad() {
         //code
+        //Looks for single or multiple taps.
+         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        
+        tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
         appDelegate.productName = nil
         appDelegate.productCat = nil
         appDelegate.productImg = nil
@@ -191,6 +198,11 @@ class AddGroceryViewController:UIViewController,AVCaptureMetadataOutputObjectsDe
     
         
         
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     

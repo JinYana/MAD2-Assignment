@@ -11,8 +11,8 @@ import Firebase
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var joinhouseerrormsg: UILabel!
-    @IBOutlet weak var makehouseerrormsg: UILabel!
+    @IBOutlet weak var joinhouseerrormsg: UILabel?
+    @IBOutlet weak var makehouseerrormsg: UILabel?
     var ref :DatabaseReference!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -24,8 +24,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var housename: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        makehouseerrormsg.isHidden = true
-        joinhouseerrormsg.isHidden = true
+        makehouseerrormsg?.isHidden = true
+        joinhouseerrormsg?.isHidden = true
         
         
         
@@ -45,14 +45,14 @@ class HomeViewController: UIViewController {
                     self.navigationController?.popToRootViewController(animated: true)
                 }
                 else{
-                    self.joinhouseerrormsg.isHidden = false
+                    self.joinhouseerrormsg?.isHidden = false
                 }
                 
             })
             
         }
         else{
-            self.joinhouseerrormsg.isHidden = false
+            self.joinhouseerrormsg?.isHidden = false
         }
     }
     
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController {
             ref.updateChildValues(childUpdates)
             
             //Adding user to newly created house
-            let post2 = [appDelegate.selectedUser?.mobilenumber: "owner"]
+            let post2 = [appDelegate.selectedNum: "owner"]
             let childUpdates2 = ["/Houses/\(key)/userList": post2]
             ref.updateChildValues(childUpdates2)
             self.navigationController?.popToRootViewController(animated: true)
@@ -78,8 +78,13 @@ class HomeViewController: UIViewController {
             
         }
         else{
-            makehouseerrormsg.isHidden = false
+            makehouseerrormsg?.isHidden = false
         }
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 }
 

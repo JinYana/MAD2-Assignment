@@ -14,7 +14,8 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var quantity: UITextField!
-    @IBOutlet weak var grocerypic: UIImageView!
+    
+    @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var grocerydesc: UILabel!
     @IBOutlet weak var groceryname: UILabel!
     var ref:DatabaseReference!
@@ -46,7 +47,7 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
                   
                   DispatchQueue.main.async{
                       let image = UIImage(data: data)
-                      self.grocerypic.image = image
+                      self.picture.image = image
                   }
               })
               task.resume()
@@ -56,23 +57,8 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if Int(quantity.text!)! > 0{
-            //Adding the user to the exisiting house to the database
-            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-            guard let key = ref.child("Houses").childByAutoId().key else { return }
-            let post = ["quantity": quantity.text ]
-            
-            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).updateChildValues(post)
-            self.navigationController?.popToRootViewController(animated: true)
-        }
-        else{
-            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).removeValue()
-        }
-        
-            
-    }
+    
+    
     
     //minus quantity of food
     @IBAction func minus(_ sender: Any) {
@@ -80,15 +66,43 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
             quantity.text = String(Int(quantity.text!)! - 1)
         }
         
+        
+        if Int(quantity.text!)! > 0{
+            //Adding the user to the exisiting house to the database
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            guard let key = ref.child("Houses").childByAutoId().key else { return }
+            let post = ["quantity": quantity.text ]
+            
+            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).updateChildValues(post)
+            
+        }
+        else{
+            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).removeValue()
+        }
+        
     }
     
     //add quantity of food
     @IBAction func add(_ sender: Any) {
         quantity.text = String(Int(quantity.text!)! + 1)
+        
+        
+        if Int(quantity.text!)! > 0{
+            //Adding the user to the exisiting house to the database
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            guard let key = ref.child("Houses").childByAutoId().key else { return }
+            let post = ["quantity": quantity.text ]
+            
+            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).updateChildValues(post)
+            
+        }
+        else{
+            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).removeValue()
+            
+        }
     }
     
-    // open camera to take picture
-    @IBAction func takegrocerypic(_ sender: Any) {
+    @IBAction func takepic(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
         vc.allowsEditing = true
@@ -96,7 +110,7 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
         present(vc, animated: true)
     }
     
-    // set image and save image to firebase
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
 
@@ -105,18 +119,47 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
             return
         }
 
-        grocerypic.image = image
-        
+        picture.image = image
         let storage = Storage.storage().reference()
-        
-        
-        storage.child("groceries/\(appDelegate.selectedGrocery?.id as! String)").putData(grocerypic.image!.pngData()! , metadata: nil, completion: { _, error in guard error == nil else{
+                
+                
+       storage.child("groceries/\(appDelegate.selectedGrocery?.id as! String)").putData(picture.image!.pngData()! , metadata: nil, completion: { _, error in guard error == nil else{
             print("Failed to upload")
             return
-           }
+           
+            }
+       })
+        
+        
 
-
-        })
+    }
+    
+    
+    @IBAction func changedquantity(_ sender: Any) {
+        
+        if Int(quantity.text!)! > 0{
+            //Adding the user to the exisiting house to the database
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            guard let key = ref.child("Houses").childByAutoId().key else { return }
+            let post = ["quantity": quantity.text ]
+            
+            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).updateChildValues(post)
+            
+        }
+        else{
+            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).removeValue()
+        }
+    }
+    
+    
+    
+    
+    
+    // set image and save image to firebase
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
 

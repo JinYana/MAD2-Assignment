@@ -54,6 +54,14 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
                                                 
         
+            //Looks for single or multiple taps.
+             let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+            
+            tap.cancelsTouchesInView = false
+
+            view.addGestureRecognizer(tap)
+        
         if Auth.auth().currentUser != nil{
             print("Authentication Succeed")
             let storyboard = UIStoryboard(name: "HouseSelector", bundle: nil)
@@ -61,6 +69,7 @@ class ViewController: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
             self.present(vc,animated: true,completion: nil)
             
+            //removing +65 from the user phone number
             appDelegate.selectedNum = String((Auth.auth().currentUser?.phoneNumber?.dropFirst(3))!) as String
         }
         
@@ -89,6 +98,11 @@ class ViewController: UIViewController {
             }
         destination.phoneNo = phoneNo.text!
         }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
     
 

@@ -83,12 +83,24 @@ class LoginVC: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
+        //Looks for single or multiple taps to dissmiss keyboard
+         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
+        
         warning.isHidden = true
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
 
         print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
     
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
 

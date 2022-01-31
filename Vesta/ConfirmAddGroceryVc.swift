@@ -17,6 +17,7 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
     
     @IBOutlet weak var cfmAddName: UILabel!
     
+    @IBOutlet weak var errormsg: UILabel!
     @IBOutlet weak var cfmAddDesc: UILabel!
     
     @IBOutlet weak var noImgLbl: UILabel!
@@ -28,43 +29,51 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
     
     
     @IBAction func addButton(_ sender: Any) {
-        // add to firebase
-        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-        //Adding the user to the exisiting house to the database
-        guard let key = ref.child("Groceries").childByAutoId().key else { return }
-        let post = ["name": appDelegate.productName,
-                    "description": appDelegate.productCat,
-                    "quantity": quantityField.text!,
-                    "id": key,
-                    "houseid": appDelegate.selectedHouse?.id] as [String : Any]
-        ref.child("Groceries").child(key).updateChildValues(post)
-        
-        let storage = Storage.storage().reference()
-        
-        storage.child("groceries/\(key)").putData(groceryImg.image!.pngData()!,metadata: nil,completion:{_, error in guard error == nil else {
+        if quantityField.text != ""{
+            // add to firebase
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            //Adding the user to the exisiting house to the database
+            guard let key = ref.child("Groceries").childByAutoId().key else { return }
+            let post = ["name": appDelegate.productName,
+                        "description": appDelegate.productCat,
+                        "quantity": quantityField.text!,
+                        "id": key,
+                        "houseid": appDelegate.selectedHouse?.id] as [String : Any]
+            ref.child("Groceries").child(key).updateChildValues(post)
             
-            print("Failed To Upload")
-            return 
+            let storage = Storage.storage().reference()
             
-        }})
-        
-        
-       
-        
-        
-        let post2 = [key: true]
-        ref.child("Houses").child(appDelegate.selectedHouse!.id).child("groceryList").updateChildValues(post2)
-            let alert = UIAlertController(title: "Add Grocery", message: "Grocery '\(appDelegate.productName!)' has been added to your grocery list", preferredStyle: .alert)
-            self.present(alert, animated: true, completion: nil)
-            Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)
+            storage.child("groceries/\(key)").putData(groceryImg.image!.pngData()!,metadata: nil,completion:{_, error in guard error == nil else {
                 
+                print("Failed To Upload")
+                return
                 
-            } )
-        
-        
-        
-        //segue back to tablevc
-        performSegue(withIdentifier: "returnGroclist", sender: nil)
+            }
+                
+            })
+            
+            
+           
+            
+            
+            let post2 = [key: true]
+            ref.child("Houses").child(appDelegate.selectedHouse!.id).child("groceryList").updateChildValues(post2)
+                let alert = UIAlertController(title: "Add Grocery", message: "Grocery '\(appDelegate.productName!)' has been added to your grocery list", preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)
+                    //return to root view controller
+                    self.navigationController?.popToRootViewController(animated: true)
+                    
+                    
+                } )
+            
+            
+            
+            
+        }
+        else{
+            errormsg.isHidden = false
+        }
         
     }
     
@@ -97,6 +106,7 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        errormsg.isHidden = true
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         

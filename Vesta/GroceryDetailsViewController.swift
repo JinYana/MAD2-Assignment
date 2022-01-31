@@ -22,21 +22,18 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Looks for single or multiple taps.
-         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-
-        
-        tap.cancelsTouchesInView = true
-
-        view.addGestureRecognizer(tap)
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
         let selectedgroc = appDelegate.selectedGrocery
         quantity.text = selectedgroc?.quantity
         groceryname.text = selectedgroc?.name
         grocerydesc.text = selectedgroc?.description
         
+        
         let storage = Storage.storage().reference()
         let starsRef = storage.child("groceries/\(appDelegate.selectedGrocery?.id as! String)")
         
+       
         // Fetch the download URL
         starsRef.downloadURL { url, error in
           if let error = error {
@@ -56,6 +53,23 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
               task.resume()
           }
         
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if Int(quantity.text!)! > 0{
+            //Adding the user to the exisiting house to the database
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            guard let key = ref.child("Houses").childByAutoId().key else { return }
+            let post = ["quantity": quantity.text ]
+            
+            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).updateChildValues(post)
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        else{
+            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).removeValue()
         }
     }
     
@@ -161,4 +175,6 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+
 }

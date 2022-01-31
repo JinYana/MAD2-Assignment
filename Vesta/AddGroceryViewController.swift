@@ -78,7 +78,7 @@ class AddGroceryViewController:UIViewController,AVCaptureMetadataOutputObjectsDe
         
         
         if metadataObjects != nil && metadataObjects != nil{
-            if let object = metadataObjects[0] as? AVMetadataMachineReadableCodeObject{
+            if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject{
                 //print(appDelegate.productName)
                 
                 
@@ -87,6 +87,7 @@ class AddGroceryViewController:UIViewController,AVCaptureMetadataOutputObjectsDe
                 if (object.type == AVMetadataObject.ObjectType.ean13 || object.type == AVMetadataObject.ObjectType.upce){
 
                     getNonfoodreq(upc:object.stringValue!)
+                    print (appDelegate.productName)
                     if(appDelegate.productName != nil){
                         performSegue(withIdentifier: "confirmAddGroc", sender: nil)
                         

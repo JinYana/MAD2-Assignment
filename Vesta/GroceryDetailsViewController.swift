@@ -57,21 +57,7 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if Int(quantity.text!)! > 0{
-            //Adding the user to the exisiting house to the database
-            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
-            guard let key = ref.child("Houses").childByAutoId().key else { return }
-            let post = ["quantity": quantity.text ]
-            
-            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).updateChildValues(post)
-            self.navigationController?.popToRootViewController(animated: true)
-        }
-        else{
-            self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).removeValue()
-        }
-    }
+    
     
     
     //minus quantity of food

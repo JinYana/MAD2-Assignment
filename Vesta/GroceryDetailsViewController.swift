@@ -23,6 +23,7 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        // allow user tap on screen to hide keyboard
         view.addGestureRecognizer(tapGesture)
         groceryname.sizeToFit()
         let selectedgroc = appDelegate.selectedGrocery

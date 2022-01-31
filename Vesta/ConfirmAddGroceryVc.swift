@@ -41,6 +41,7 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
                         "houseid": appDelegate.selectedHouse?.id] as [String : Any]
             ref.child("Groceries").child(key).updateChildValues(post)
             
+            // add user's image to firebase storage
             let storage = Storage.storage().reference()
             
             storage.child("groceries/\(key)").putData(groceryImg.image!.pngData()!,metadata: nil,completion:{_, error in guard error == nil else {
@@ -55,7 +56,7 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
             
            
             
-            
+            // add grocery to user's house
             let post2 = [key: true]
             ref.child("Houses").child(appDelegate.selectedHouse!.id).child("groceryList").updateChildValues(post2)
                 let alert = UIAlertController(title: "Add Grocery", message: "Grocery '\(appDelegate.productName!)' has been added to your grocery list", preferredStyle: .alert)
@@ -77,7 +78,7 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
         
     }
     
-    
+    // init camera
     @IBAction func captureItem(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
@@ -89,6 +90,7 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
         
     }
     
+    // set user's taken image as imageview
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
 
@@ -107,6 +109,7 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
     override func viewDidLoad() {
         super.viewDidLoad()
         errormsg.isHidden = true
+        // allow user to tap on screen to hide keyboard
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         
@@ -122,9 +125,8 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
             
             
         }
-        
-         let url = URL(string:appDelegate.productImg!)
-        
+        // download defualt image from API
+        let url = URL(string:appDelegate.productImg!)
         
         getData(from: url!) { data, response, error in
             guard let data = data,error == nil else{return}
@@ -148,14 +150,7 @@ class ConfirmAddGroceryVc:UIViewController, UIImagePickerControllerDelegate & UI
     }
     
     
-  
-    
-    
-    
-    
-    
-    
-    
+
     
     
 }

@@ -76,17 +76,14 @@ class AddGroceryViewController:UIViewController,AVCaptureMetadataOutputObjectsDe
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         
-        
+        // get output of barcode scanner
         if metadataObjects != nil && metadataObjects != nil{
             if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject{
-                //print(appDelegate.productName)
                 
-                
-                
-                
+                // check if barcode is of matching type
                 if (object.type == AVMetadataObject.ObjectType.ean13 || object.type == AVMetadataObject.ObjectType.upce){
 
-                    getNonfoodreq(upc:object.stringValue!)
+                    getGrocAPIreq(upc:object.stringValue!)
                     print (appDelegate.productName)
                     if(appDelegate.productName != nil){
                         performSegue(withIdentifier: "confirmAddGroc", sender: nil)
@@ -152,20 +149,20 @@ class AddGroceryViewController:UIViewController,AVCaptureMetadataOutputObjectsDe
         
     }
     
-    func getNonfoodreq(upc:String) -> String{
+    func getGrocAPIreq(upc:String) -> String{
         
         var dispName:String = ""
         let urlString = "https://eandata.com/feed/?v=3&keycode=2E105A5961EC5F63&mode=json&find=\(upc)"
                         
-                        let url = URL(string:urlString)
+                let url = URL(string:urlString)
                 guard url != nil else{
-                    return("fuk ur mder")
+                    return("error in URL")
                 }
-                        let session = URLSession.shared
-                        let dataTask = session.dataTask(with: url!) { data, response, error in
+                let session = URLSession.shared
+                let dataTask = session.dataTask(with: url!) { data, response, error in
                         
                             
-                            if error == nil && data != nil{
+                if error == nil && data != nil{
                                 
                                 
                                 //parse json

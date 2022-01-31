@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //setting profile text
         role.text = "\(appDelegate.selectedUser?.role as! String)"
         
         phoneno.text = "\(appDelegate.selectedUser?.mobilenumber as! String)"

@@ -38,6 +38,7 @@ class CreateChoreViewController: UIViewController{
         
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
+        //getting list of users to assign chore to
         ref.observe(DataEventType.value, with:{ snapshot in
             
             

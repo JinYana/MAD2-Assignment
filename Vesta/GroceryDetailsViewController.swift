@@ -24,6 +24,7 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
+        groceryname.sizeToFit()
         let selectedgroc = appDelegate.selectedGrocery
         quantity.text = selectedgroc?.quantity
         groceryname.text = selectedgroc?.name
@@ -102,6 +103,7 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
         }
     }
     
+    //open camera
     @IBAction func takepic(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.sourceType = .camera
@@ -110,7 +112,7 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
         present(vc, animated: true)
     }
     
-    
+    //choose picture
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
 

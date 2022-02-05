@@ -93,7 +93,18 @@ class HomeTableViewController: UITableViewController {
         
         
         
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
+        ref.child("Houses").observe(DataEventType.value, with:{ snapshot in
+            
+            let houseusers = snapshot.childSnapshot(forPath: self.houseList[indexPath.row].id).childSnapshot(forPath: "userList").children
+            
+            for user in houseusers{
+                if (user as AnyObject).value == "owner"{
+                    self.appDelegate.selectedOwner = (user as AnyObject).key
+                }
+            }
+        })
         
         
         

@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var selectedHouse:House?
     var selectedUser:User?
+    var selectedOwner:String!
     var selectedNum: String!
     var selectedChores: Chores?
     var selectedGrocery: Grocery?

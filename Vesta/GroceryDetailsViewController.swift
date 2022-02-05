@@ -64,12 +64,11 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
     
     //minus quantity of food
     @IBAction func minus(_ sender: Any) {
-        if Int(quantity.text!)! >= 0{
+        
+        
+        
+        if Int(quantity.text!)! > 1{
             quantity.text = String(Int(quantity.text!)! - 1)
-        }
-        
-        
-        if Int(quantity.text!)! > 0{
             //Adding the user to the exisiting house to the database
             ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
             guard let key = ref.child("Houses").childByAutoId().key else { return }
@@ -77,9 +76,66 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
             
             self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).updateChildValues(post)
             
+            
         }
         else{
+            quantity.text = String(Int(quantity.text!)! - 1)
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
             self.ref.child("Groceries").child(appDelegate.selectedGrocery!.id).removeValue()
+            ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            ref.child("Houses").child(appDelegate.selectedHouse!.id as! String).child("groceryList").child(appDelegate.selectedGrocery?.id as! String).removeValue()
+            var numberofgroc = 0
+            let groclist = ref.child("Houses").child(appDelegate.selectedHouse!.id as! String).child("groceryList")
+            
+            groclist.observe(DataEventType.value, with:{ [self] snapshot in
+                for i in snapshot.children{
+                    numberofgroc = numberofgroc + 1
+                    
+                }
+                if numberofgroc <= 3{
+                    let semaphore = DispatchSemaphore (value: 0)
+                    var parameters = ""
+
+                    if numberofgroc > 1{
+                        parameters = "From=%2B16204624618&To=%2B65\(appDelegate.selectedOwner as! String)&Body=There is only \(numberofgroc) groceries left in the \(appDelegate.selectedHouse!.name as! String) house. You might want to consider going on a grocery run!"
+                    }
+                    else if numberofgroc == 1{
+                        parameters = "From=%2B16204624618&To=%2B65\(appDelegate.selectedOwner as! String)&Body=There is only \(numberofgroc) grocery left in the \(appDelegate.selectedHouse!.name as! String) house. You might want to consider going on a grocery run!"
+                    }
+                    else{
+                        parameters = "From=%2B16204624618&To=%2B65\(appDelegate.selectedOwner as! String)&Body=There are no groceries left in the \(appDelegate.selectedHouse!.name as! String) house. You might want to consider going on a grocery run!"
+                    }
+                    let postData =  parameters.data(using: .utf8)
+
+                    var request = URLRequest(url: URL(string: "https://api.twilio.com/2010-04-01/Accounts/AC7a9337b3395bfa73ec65dbdf3ff6991b/Messages")!,timeoutInterval: Double.infinity)
+                    request.addValue("Basic QUM3YTkzMzdiMzM5NWJmYTczZWM2NWRiZGYzZmY2OTkxYjo2ZjQ3YTRmNTRjMzRjOGI3MmY4YWYxNmFkMjVkNTNhNA==", forHTTPHeaderField: "Authorization")
+                    request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+
+                    request.httpMethod = "POST"
+                    request.httpBody = postData
+
+                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                      guard let data = data else {
+                        print(String(describing: error))
+                          
+                        semaphore.signal()
+                        return
+                      }
+                      print(String(data: data, encoding: .utf8)!)
+                      semaphore.signal()
+                      
+                    }
+
+                    task.resume()
+                    semaphore.wait()
+                    
+                        
+                    self.navigationController?.popToRootViewController(animated: true)
+                
+                }
+            })
+            
+            
         }
         
     }

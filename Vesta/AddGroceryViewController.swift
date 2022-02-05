@@ -12,6 +12,7 @@ import AVFoundation
 
 
 class AddGroceryViewController:UIViewController,AVCaptureMetadataOutputObjectsDelegate{
+    @IBOutlet weak var quantityzero: UILabel!
     @IBOutlet weak var groceryname: UITextField!
     @IBOutlet weak var groceryquantity: UITextField!
     @IBOutlet weak var errormsg: UILabel!
@@ -34,12 +35,18 @@ class AddGroceryViewController:UIViewController,AVCaptureMetadataOutputObjectsDe
         appDelegate.productCat = nil
         appDelegate.productImg = nil
         errormsg.isHidden = true
+        quantityzero.isHidden = true
         
        
     }
     @IBAction func addmanualgrocery(_ sender: Any) {
+        errormsg.isHidden = true
+        quantityzero.isHidden = true
         if groceryname.text == "" || grocerydescription.text == "" || groceryquantity.text == ""{
             errormsg.isHidden = false
+        }
+        else if groceryquantity.text == "0"{
+            quantityzero.isHidden = false
         }
         else{
         

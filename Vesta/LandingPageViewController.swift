@@ -11,6 +11,10 @@ import Firebase
 
 
 class LandingPageViewController : UIViewController, NotiDelegate{
+    @IBOutlet weak var numofchores: UILabel!
+    @IBOutlet weak var numofgroc: UILabel!
+    var grocList:[Grocery] = []
+    var choreList:[Chores] = []
     func popupokay() {
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         //getting the users assigned chores from the database
@@ -52,6 +56,8 @@ class LandingPageViewController : UIViewController, NotiDelegate{
         
         
         
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,6 +75,63 @@ class LandingPageViewController : UIViewController, NotiDelegate{
             }
             
             
+        })
+        
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            //getting the users assigned chores from the database
+        ref.child("Groceries").observe(DataEventType.value, with:{ [self] snapshot in
+                
+            grocList.removeAll()
+                
+            for i in snapshot.children{
+                
+                let databasegroc = snapshot.childSnapshot(forPath: (i as AnyObject).key)
+                let houseid = databasegroc.childSnapshot(forPath: "houseid").value
+                       
+                
+                if houseid as! String == self.appDelegate.selectedHouse!.id{
+                    
+                    let grocery = Grocery(name: databasegroc.childSnapshot(forPath: "name").value as! String, descrption: databasegroc.childSnapshot(forPath: "description").value as! String, nutritionInfo: "", quantity: databasegroc.childSnapshot(forPath: "quantity").value as! String, id: databasegroc.childSnapshot(forPath: "id").value as! String)
+                    
+                    grocList.append(grocery)
+                    
+                    
+                    
+                    
+                }
+            }
+            numofgroc.text = "You have \(String(grocList.count)) groceries in your house"
+            
+            
+            
+        })
+        
+        ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+            //getting the users assigned chores from the database
+        ref.child("Chores").observe(DataEventType.value, with:{ [self] snapshot in
+                
+            choreList.removeAll()
+                
+            for i in snapshot.children{
+                
+                let databasechores = snapshot.childSnapshot(forPath: (i as AnyObject).key)
+                let assigneduser = databasechores.childSnapshot(forPath: "user").value
+                       
+                
+                if assigneduser as! String == self.appDelegate.selectedNum{
+                    
+                    let chore = Chores(name: databasechores.childSnapshot(forPath: "name").value as! String, id: databasechores.childSnapshot(forPath: "id").value as! String, remarks: databasechores.childSnapshot(forPath: "remarks").value as! String, user: databasechores.childSnapshot(forPath: "user").value as! String, houseid: databasechores.childSnapshot(forPath: "houseid").value as! String)
+                    if chore.houseid == self.appDelegate.selectedHouse!.id{
+                        choreList.append(chore)
+                    }
+                    
+                    
+                }
+            }
+            
+            
+            
+            numofchores.text = "You have \(String(choreList.count)) pending chores"
         })
     }
     

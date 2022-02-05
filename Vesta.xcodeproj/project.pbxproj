@@ -35,7 +35,8 @@
 		0E805AFE279C463400F6AB18 /* ViewChoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E805AFD279C463400F6AB18 /* ViewChoreTableViewController.swift */; };
 		0E8D0F6E27985661005B0CB3 /* NewUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8D0F6D27985661005B0CB3 /* NewUser.storyboard */; };
 		0E8D0F70279859D9005B0CB3 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */; };
-		0E8F968127A37CCC0085CAAC /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F968027A37CCC0085CAAC /* HomeTableViewCell.swift */; };
+		0ED468F227AEDF5A008FC476 /* InviteMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED468F127AEDF5A008FC476 /* InviteMemberViewController.swift */; };
+		0ED468F427AEE2E5008FC476 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED468F327AEE2E4008FC476 /* HomeTableViewCell.swift */; };
 		C55484CD279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CC279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift */; };
 		C55484CF279837E400FEE6D3 /* AddGroceryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55484CE279837E400FEE6D3 /* AddGroceryViewController.swift */; };
 		C56924FF279DDE50003C6F47 /* ConfirmAddGroceryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */; };
@@ -70,7 +71,8 @@
 		0E805AFD279C463400F6AB18 /* ViewChoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChoreTableViewController.swift; sourceTree = "<group>"; };
 		0E8D0F6D27985661005B0CB3 /* NewUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewUser.storyboard; sourceTree = "<group>"; };
 		0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
-		0E8F968027A37CCC0085CAAC /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		0ED468F127AEDF5A008FC476 /* InviteMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteMemberViewController.swift; sourceTree = "<group>"; };
+		0ED468F327AEE2E4008FC476 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		C55484CC279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGroceriesTableViewController.swift; sourceTree = "<group>"; };
 		C55484CE279837E400FEE6D3 /* AddGroceryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroceryViewController.swift; sourceTree = "<group>"; };
 		C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAddGroceryVc.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				0E6868942795E2D6007F092A /* HomeViewController.swift */,
 				C5AC5CFA2796AEAE000502DE /* LoginVC.swift */,
 				0E6868962796B494007F092A /* HomeTableViewController.swift */,
+				0ED468F327AEE2E4008FC476 /* HomeTableViewCell.swift */,
 				C55484CC279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift */,
 				C55484CE279837E400FEE6D3 /* AddGroceryViewController.swift */,
 				0E8D0F6F279859D9005B0CB3 /* NewUserViewController.swift */,
@@ -140,9 +143,9 @@
 				C56924FE279DDE50003C6F47 /* ConfirmAddGroceryVc.swift */,
 				0E5EAEA2279EEF16003777A4 /* LandingPageViewController.swift */,
 				0E5EAEA4279F3648003777A4 /* NotiDelegate.swift */,
-				0E8F968027A37CCC0085CAAC /* HomeTableViewCell.swift */,
 				0E5CE95127A5511400E791DC /* ProfileViewController.swift */,
 				0E5CE95327A5A3D700E791DC /* GroceryDetailsViewController.swift */,
+				0ED468F127AEDF5A008FC476 /* InviteMemberViewController.swift */,
 			);
 			path = Vesta;
 			sourceTree = "<group>";
@@ -237,11 +240,12 @@
 				0E68D225279B0BC800A7667B /* CreateChoreViewController.swift in Sources */,
 				C55484CF279837E400FEE6D3 /* AddGroceryViewController.swift in Sources */,
 				0E68688B27959EA1007F092A /* House.swift in Sources */,
+				0ED468F427AEE2E5008FC476 /* HomeTableViewCell.swift in Sources */,
 				0E5CE95227A5511400E791DC /* ProfileViewController.swift in Sources */,
 				C55484CD279837AB00FEE6D3 /* ViewGroceriesTableViewController.swift in Sources */,
 				0E6868972796B494007F092A /* HomeTableViewController.swift in Sources */,
 				0E5879D3279DBDC4005E0981 /* PopupViewController.swift in Sources */,
-				0E8F968127A37CCC0085CAAC /* HomeTableViewCell.swift in Sources */,
+				0ED468F227AEDF5A008FC476 /* InviteMemberViewController.swift in Sources */,
 				0E5879CF279D51C3005E0981 /* CompleteChoreViewController.swift in Sources */,
 				0E5EAEA3279EEF16003777A4 /* LandingPageViewController.swift in Sources */,
 				0E6868952795E2D6007F092A /* HomeViewController.swift in Sources */,
@@ -330,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -385,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -403,7 +407,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZT55VRV55;
+				DEVELOPMENT_TEAM = PRRBNJ47ZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Vesta/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow To Open Camera?";

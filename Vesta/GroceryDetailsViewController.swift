@@ -87,7 +87,7 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
             var numberofgroc = 0
             let groclist = ref.child("Houses").child(appDelegate.selectedHouse!.id as! String).child("groceryList")
             
-            groclist.observe(DataEventType.value, with:{ [self] snapshot in
+            groclist.observeSingleEvent(of: DataEventType.value, with:{ [self] snapshot in
                 for i in snapshot.children{
                     numberofgroc = numberofgroc + 1
                     
@@ -97,10 +97,10 @@ class GroceryDetailsViewController: UIViewController, UIImagePickerControllerDel
                     var parameters = ""
 
                     if numberofgroc > 1{
-                        parameters = "From=%2B16204624618&To=%2B65\(appDelegate.selectedOwner as! String)&Body=There is only \(numberofgroc) groceries left in the \(appDelegate.selectedHouse!.name as! String) house. You might want to consider going on a grocery run!"
+                        parameters = "From=%2B16204624618&To=%2B65\(appDelegate.selectedOwner as! String)&Body=There is only \(numberofgroc - 1) groceries left in the \(appDelegate.selectedHouse!.name as! String) house. You might want to consider going on a grocery run!"
                     }
                     else if numberofgroc == 1{
-                        parameters = "From=%2B16204624618&To=%2B65\(appDelegate.selectedOwner as! String)&Body=There is only \(numberofgroc) grocery left in the \(appDelegate.selectedHouse!.name as! String) house. You might want to consider going on a grocery run!"
+                        parameters = "From=%2B16204624618&To=%2B65\(appDelegate.selectedOwner as! String)&Body=There is only \(numberofgroc - 1) grocery left in the \(appDelegate.selectedHouse!.name as! String) house. You might want to consider going on a grocery run!"
                     }
                     else{
                         parameters = "From=%2B16204624618&To=%2B65\(appDelegate.selectedOwner as! String)&Body=There are no groceries left in the \(appDelegate.selectedHouse!.name as! String) house. You might want to consider going on a grocery run!"

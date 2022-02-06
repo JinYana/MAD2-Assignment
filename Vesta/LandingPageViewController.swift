@@ -100,7 +100,7 @@ class LandingPageViewController : UIViewController, NotiDelegate{
                     
                 }
             }
-            numofgroc.text = "You have \(String(grocList.count)) groceries in your house"
+            numofgroc.text = "\(String(grocList.count)) Total Groceries"
             
             
             
@@ -131,7 +131,7 @@ class LandingPageViewController : UIViewController, NotiDelegate{
             
             
             
-            numofchores.text = "You have \(String(choreList.count)) pending chores"
+            numofchores.text = "\(String(choreList.count)) Pending Chores"
         })
     }
     

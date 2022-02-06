@@ -14,6 +14,13 @@ class NewUserController: UIViewController{
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var ref:DatabaseReference!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        // allow user tap on screen to hide keyboard
+        view.addGestureRecognizer(tapGesture)
+    }
 
     @IBAction func confirmname(_ sender: Any) {
         if setname.text != ""{
@@ -30,6 +37,11 @@ class NewUserController: UIViewController{
                 vc.modalPresentationStyle = .fullScreen
             self.present(vc,animated: true,completion: nil)
         }
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
         

@@ -26,6 +26,8 @@ class CompleteChoreViewController : UIViewController, UIImagePickerControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         errormsg.isHidden = true
+        
+        //filing the slected chore name
         chorename.text = "Chore Name: \(appDelegate.selectedChores?.name as! String)"
 
         remarks.text = "Remarks: \(appDelegate.selectedChores?.remarks as! String)"
@@ -71,7 +73,7 @@ class CompleteChoreViewController : UIViewController, UIImagePickerControllerDel
                 })
                 
                 
-                
+                //removing chore from the database
                 ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
                 
                 
@@ -86,7 +88,7 @@ class CompleteChoreViewController : UIViewController, UIImagePickerControllerDel
                 ref.child("Chores").child(appDelegate.selectedChores!.id).removeValue()
                 
                 
-                
+                //notifying owner of the house of completd chore
                 let semaphore = DispatchSemaphore (value: 0)
         
                 let parameters = "From=%2B16204624618&To=%2B65\(appDelegate.selectedOwner as! String)&Body=\(appDelegate.selectedUser?.name as! String) has completed the chore '\(appDelegate.selectedChores?.name as! String)'. Log onto vesta to check on him!"

@@ -20,6 +20,8 @@ class PopupViewController: UIViewController{
     var key: String!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //retriveing the completed chore
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
         
@@ -66,6 +68,7 @@ class PopupViewController: UIViewController{
         
         
     }
+    //use the okay button to dismiss the popup
     @IBAction func okay(_ sender: Any) {
         ref.child("Houses").child(appDelegate.selectedHouse!.id).child("Completed").child(self.key).removeValue()
         dismiss(animated: true, completion: nil)

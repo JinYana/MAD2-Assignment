@@ -62,7 +62,7 @@ class InviteMemberViewController: UIViewController{
 
             task.resume()
             semaphore.wait()
-            let alert = UIAlertController(title: "Invite Sent", message: "Your house code has been sent to  \(memberphone.text) via SMS", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Invite Sent", message: "Your house code has been sent to  \(memberphone.text as! String) via SMS", preferredStyle: .alert)
                 self.present(alert, animated: true, completion: nil)
                 Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)
                     self.dismiss(animated: true, completion: nil)

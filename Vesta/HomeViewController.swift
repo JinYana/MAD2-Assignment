@@ -26,6 +26,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         makehouseerrormsg?.isHidden = true
         joinhouseerrormsg?.isHidden = true
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
         
         
         

@@ -40,7 +40,7 @@ class LandingPageViewController : UIViewController, NotiDelegate{
         //setting up selected user in app delegate
         ref = Database.database(url: "https://mad2-vesta-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
         
-        ref.observe(DataEventType.value, with:{ snapshot in
+        ref.observeSingleEvent(of: DataEventType.value, with:{ snapshot in
             
             let role = snapshot.childSnapshot(forPath: "Houses").childSnapshot(forPath: self.appDelegate.selectedHouse!.id).childSnapshot(forPath: "userList").childSnapshot(forPath: self.appDelegate.selectedNum).value as! String
             
